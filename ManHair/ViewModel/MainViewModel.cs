@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ManHair.ViewModel
 {
-    public class SalonViewModel
+    public class MainViewModel
     {
+
     }
 }

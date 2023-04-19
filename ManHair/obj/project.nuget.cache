@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UCTOAudx9jZPV7pHyAXZcsnBAVCheqnktHH9m/lHSe7vgFCkGSz6I4RYrxazyUtZw8YEdvgcWmti80vPqRAUkQ==",
+  "dgSpecHash": "buZ6Vb/uFiE3/OGd0JU6hAPwtyLyiL13BBMzcMd/RvIx4E6nbi0dH5C0HVth6UY3NmnZ2lWxUmZADF2TIiij4Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\My Projects\\ExamProject\\ManHair\\ManHair\\ManHair.csproj",
+  "projectFilePath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\farha\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\farha\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

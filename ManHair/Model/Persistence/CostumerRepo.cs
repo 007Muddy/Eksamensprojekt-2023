@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace ManHair.ViewModel.Repositories
 {
     public class CostumerRepo
     {
-        private List<Costumer> CostumerList = new List<Costumer>(); 
+        private List<Customer> CostumerList = new List<Customer>(); 
 
         //Reference to the connectionStrings made in App.Config and passing its name in the parameter
         public string connectionString { get; } = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
@@ -37,7 +38,7 @@ namespace ManHair.ViewModel.Repositories
                         string phone = dataReader.GetString(2);
                         string Email = dataReader.GetString(3);
                         string Password = dataReader.GetString(4);
-                        Costumer costumer = new Costumer(CostumerID, Name, phone, Email, Password);
+                        Customer costumer = new Customer(CostumerID, Name, phone, Email, Password);
                         CostumerList.Add(costumer);
                     }
 
@@ -51,26 +52,55 @@ namespace ManHair.ViewModel.Repositories
             }
         }
 
-        public bool CreateNewUser(string name, string phone, string email, string password)
+        public void Add(string name, string phone, string email, string password)
         {
-            bool addSucces = false;
+          
             try
             {
+                // A variable named "iterations" is initialized with the value of 10000.
+                // This is the number of iterations that PBKDF2 will perform to generate the hash.
+                int iterations = 10000;
+
+                //A byte array named "salt" is created with a length of 16 bytes,
+                //and it is filled with random bytes using the RNGCryptoServiceProvider class.
+                byte[] salt; 
+                new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+                //New instans of the Rfc2898DeriveBytes Class
+
+                //An instance of the Rfc2898DeriveBytes class is created, passing in the password, salt, and number of rounds as arguments.
+                //This is the main class that performs the PBKDF2 algorithm.
+                var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
+
+                //The GetBytes method is called on the pbkdf2 instance to generate a byte array of the hashed password.
+                //The length of the array is set to 20 bytes.
+                byte[] hash = pbkdf2.GetBytes(20);
+                //A byte array named "hashBytes" is created with a length of 36 bytes.
+                byte[] hashBytes = new Byte[36];
+                //The first 16 positions of the hashBytes array are filled with the
+                //salt bytes using the Array.Copy method.
+                Array.Copy(salt, 0, hashBytes, 0, 16);
+
+                //The next 20 positions of the hashBytes array are filled with
+                //the hashed password bytes using the Array.Copy method.
+                Array.Copy(hash, 0, hashBytes, 16, 20);
+
+                //It uses the Convert.ToBase64String method to convert the hashBytes array
+                //into a base64 encoded string, which can be safely stored in the database
+                string hashedPassword = Convert.ToBase64String(hashBytes);
+
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
                     sqlConnection.Open();
 
-                    using (SqlCommand command = new SqlCommand("INSERT INTO TABLE Salon_Costumer (Name, Phone, Email, Password)" 
+                    using (SqlCommand command = new SqlCommand("INSERT INTO TABLE Customer (Name, Phone, Email, Password)" 
                         +" VALUES(@name, @phone, @email, @password)", sqlConnection))
                     {
                         command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
                         command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = phone;
                         command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
-                        command.Parameters.Add("@password", SqlDbType.NVarChar).Value = password;
+                        command.Parameters.Add("@password", SqlDbType.NVarChar).Value = hashedPassword;
                         command.ExecuteNonQuery();
 
-                        addSucces = true;
-                        return addSucces;
                     }
                 }
             }

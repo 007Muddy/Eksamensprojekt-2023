@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace ManHair.Model
 {
-    public class Costumer
+    public class Customer
     {
-        public int CostumerID { get; set; }
         public string Name { get; set; }
-        public string Phone { get; set; }
+        public int Phone { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public Costumer(int costumerID, string name, string phone, string email, string password)
+        public Customer(string name, int phone, string email, string password)
         {
-            CostumerID = costumerID;
+           
             Name = name;
             Phone = phone;
             Email = email;

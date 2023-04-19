@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\My Projects\\ExamProject\\ManHair\\ManHair\\ManHair.csproj": {}
+    "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {}
   },
   "projects": {
-    "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\My Projects\\ExamProject\\ManHair\\ManHair\\ManHair.csproj": {
+    "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\My Projects\\ExamProject\\ManHair\\ManHair\\ManHair.csproj",
+        "projectUniqueName": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
         "projectName": "ManHair",
-        "projectPath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\My Projects\\ExamProject\\ManHair\\ManHair\\ManHair.csproj",
+        "projectPath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
         "packagesPath": "C:\\Users\\farha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\My Projects\\ExamProject\\ManHair\\ManHair\\obj\\",
+        "outputPath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\farha\\AppData\\Roaming\\NuGet\\NuGet.Config",
