@@ -16,10 +16,11 @@ namespace ManHair.ViewModel.Repositories
         private List<Customer> CostumerList = new List<Customer>(); 
 
         //Reference to the connectionStrings made in App.Config and passing its name in the parameter
-        public string connectionString { get; } = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+        private string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
 
         // Load all Costumers from database and polulating into CostumerList
-        public CostumerRepo()
+
+        public void loadAllCustomers()
         {
             try
             {
@@ -29,16 +30,16 @@ namespace ManHair.ViewModel.Repositories
                     //Now Connection is open and we can run a Query on the database
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SELECT * FROM ManHair_Costumer", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT * FROM Customer", connection))
                     {
                         SqlDataReader dataReader = command.ExecuteReader();
 
                         int CostumerID = dataReader.GetInt32(0);
                         string Name = dataReader.GetString(1);
-                        string phone = dataReader.GetString(2);
+                        int phone = dataReader.GetInt32(2);
                         string Email = dataReader.GetString(3);
                         string Password = dataReader.GetString(4);
-                        Customer costumer = new Customer(CostumerID, Name, phone, Email, Password);
+                        Customer costumer = new Customer(Name, phone, Email, Password);
                         CostumerList.Add(costumer);
                     }
 
@@ -52,7 +53,7 @@ namespace ManHair.ViewModel.Repositories
             }
         }
 
-        public void Add(string name, string phone, string email, string password)
+        public void Add(string name, int phone, string email, string password)
         {
           
             try
@@ -92,11 +93,11 @@ namespace ManHair.ViewModel.Repositories
                 {
                     sqlConnection.Open();
 
-                    using (SqlCommand command = new SqlCommand("INSERT INTO TABLE Customer (Name, Phone, Email, Password)" 
+                    using (SqlCommand command = new SqlCommand("INSERT INTO Customer (Name, PhoneNumber, Email, Password)" 
                         +" VALUES(@name, @phone, @email, @password)", sqlConnection))
                     {
                         command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
-                        command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = phone;
+                        command.Parameters.Add("@phone", SqlDbType.Int).Value = phone;
                         command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
                         command.Parameters.Add("@password", SqlDbType.NVarChar).Value = hashedPassword;
                         command.ExecuteNonQuery();
@@ -107,7 +108,7 @@ namespace ManHair.ViewModel.Repositories
             catch (SqlException e)
             {
 
-                throw new Exception("Something sent wrong when trying to add a new use to the DB");
+                throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
             }
         }
 

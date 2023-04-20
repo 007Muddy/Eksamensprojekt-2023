@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManHair.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace ManHair
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void LoginButton(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegisterButton(object sender, RoutedEventArgs e)
+        {
+            Register register= new Register();
+            register.Show();
+            this.Hide();    
+
         }
     }
 }

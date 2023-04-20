@@ -14,10 +14,15 @@ namespace ManHair.ViewModel
         public string Password { get; set; }
         public string LoginMessage { get; set; }
         private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
+        private CostumerRepo costumerRepo = new CostumerRepo(); 
         public AuthenticationViewModel(Authentication auth)
         {
             this.User = auth.User;
             this.Password = auth.Password;
+        }
+
+        public AuthenticationViewModel()
+        {
         }
 
         public bool AccessGranted(string email, string password)
@@ -48,6 +53,32 @@ namespace ManHair.ViewModel
             }
            
             return access;
+        }
+
+        public bool CreateNewCustomer(string name, int phone ,string email, string password)
+        {
+            bool Registersucces = false;
+
+            try
+            {
+                if (name != null && email != null && password != null)
+                {
+                    costumerRepo.Add(name, phone, email, password);
+                    Registersucces = true;
+                    LoginMessage = $"You have successfully registered:{name}";
+                }
+                else
+                {
+                    LoginMessage = $"Registration failed, please try again bro:{name}";
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            return Registersucces;
+            
         }
     }
 }

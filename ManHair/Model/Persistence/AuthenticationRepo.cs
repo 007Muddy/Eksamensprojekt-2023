@@ -13,7 +13,7 @@ namespace ManHair.ViewModel.Repositories
 {
     public class AuthenticationRepo
     {
-        public string connectionString { get; } = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+        public string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
         public Customer customer { get; set; }  
 
        public bool AuthenticateUser(Customer customer)
