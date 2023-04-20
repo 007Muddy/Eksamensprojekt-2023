@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\ManHair\App.xaml
-21960876117
+4265697137
 
-19104442669
+21-239173334
 1961680220355
-View\MainWindow.xaml;View\Register.xaml;
+View\Booking.xaml;View\Login.xaml;View\MainWindow.xaml;View\Register.xaml;
 
 False
 

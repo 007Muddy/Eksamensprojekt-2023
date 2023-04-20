@@ -21,5 +21,14 @@ namespace ManHair.Model
             Email = email;
             Password = password;
         }
+        public Customer(string email, string password) 
+        {
+            Email = email;
+            Password = password;
+        }
+
+        
+
+       
     }
 }

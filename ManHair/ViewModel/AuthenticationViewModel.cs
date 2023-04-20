@@ -33,11 +33,17 @@ namespace ManHair.ViewModel
             {
                 if (email != null && password != null)
                 {
-                    Customer customer = new Customer("Kenneth", 44224533, email, password);
+                    Customer customer = new Customer(email, password);
+                    
 
                     if (authenticationRepo.AuthenticateUser(customer) == true)
                     {
-                        LoginMessage = $"Login was successfull: Welcome {customer.Name}";
+                        foreach (Customer customers in costumerRepo.getCostumers())
+                        {
+                            string name = customers.Name;
+                            LoginMessage = $"Login was successfull: Welcome {name}";
+                        }
+                        
                         access = true;
                     }
                     else

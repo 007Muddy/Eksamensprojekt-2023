@@ -21,6 +21,7 @@ namespace ManHair
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -28,6 +29,10 @@ namespace ManHair
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
+            Login login= new Login();
+            login.Show();
+            this.Hide();
+
 
         }
 

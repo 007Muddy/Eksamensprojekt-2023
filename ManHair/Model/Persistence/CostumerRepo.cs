@@ -53,6 +53,11 @@ namespace ManHair.ViewModel.Repositories
             }
         }
 
+        public List<Customer> getCostumers() 
+        {
+           return CostumerList;
+        }
+
         public void Add(string name, int phone, string email, string password)
         {
           

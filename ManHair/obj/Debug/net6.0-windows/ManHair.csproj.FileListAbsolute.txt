@@ -39,3 +39,7 @@ C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\Man
 C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.pdb
 C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.genruntimeconfig.cache
 C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ref\ManHair.dll
+C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Booking.g.cs
+C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Login.g.cs
+C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Booking.baml
+C:\Users\farha\OneDrive\UCL_datamatiker\Eksamensprojekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Login.baml
