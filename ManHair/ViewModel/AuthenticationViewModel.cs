@@ -14,7 +14,7 @@ namespace ManHair.ViewModel
         public string Password { get; set; }
         public string LoginMessage { get; set; }
         private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
-        private CostumerRepo costumerRepo = new CostumerRepo(); 
+        private CostumerRepo customerRepo = new CostumerRepo(); 
         public AuthenticationViewModel(Authentication auth)
         {
             this.User = auth.User;
@@ -38,12 +38,19 @@ namespace ManHair.ViewModel
 
                     if (authenticationRepo.AuthenticateUser(customer) == true)
                     {
-                        foreach (Customer customers in costumerRepo.getCostumers())
+                        //costumerRepo.getCostumers().ForEach(customer =>{ 
+                        //    string name = customer.Name;
+                        //    LoginMessage = $"Login was successfull: Welcome {name}";
+                        //});
+
+                        List<Customer> customers = customerRepo.getCostumers();
+                        List<Customer> filteredCustomers = customers.Where(customer => customer.Email == email).ToList();
+
+                        foreach (Customer customerName in filteredCustomers)
                         {
-                            string name = customers.Name;
-                            LoginMessage = $"Login was successfull: Welcome {name}";
+                            string name = customerName.Name;
+                            LoginMessage = $"Login was successful: Welcome {name}";
                         }
-                        
                         access = true;
                     }
                     else
@@ -69,7 +76,7 @@ namespace ManHair.ViewModel
             {
                 if (name != null && email != null && password != null)
                 {
-                    costumerRepo.Add(name, phone, email, password);
+                    customerRepo.Add(name, phone, email, password);
                     Registersucces = true;
                     LoginMessage = $"You have successfully registered:{name}";
                 }

@@ -34,13 +34,17 @@ namespace ManHair.ViewModel.Repositories
                     {
                         SqlDataReader dataReader = command.ExecuteReader();
 
-                        int CostumerID = dataReader.GetInt32(0);
-                        string Name = dataReader.GetString(1);
-                        int phone = dataReader.GetInt32(2);
-                        string Email = dataReader.GetString(3);
-                        string Password = dataReader.GetString(4);
-                        Customer costumer = new Customer(Name, phone, Email, Password);
-                        CostumerList.Add(costumer);
+                        while (dataReader.Read())
+                        {
+                            int CostumerID = dataReader.GetInt32(0);
+                            string Name = dataReader.GetString(1);
+                            int phone = dataReader.GetInt32(2);
+                            string Email = dataReader.GetString(3);
+                            string Password = dataReader.GetString(4);
+                            Customer costumer = new Customer(Name, phone, Email, Password);
+                            CostumerList.Add(costumer);
+                        }
+                       
                     }
 
                 }
@@ -55,6 +59,11 @@ namespace ManHair.ViewModel.Repositories
 
         public List<Customer> getCostumers() 
         {
+
+            if (CostumerList.Count == 0)
+            {
+                loadAllCustomers();
+            }
            return CostumerList;
         }
 

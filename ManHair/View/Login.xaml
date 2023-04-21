@@ -12,7 +12,7 @@
 
         <Label Content="Email" HorizontalAlignment="Left" Margin="237,170,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="237,209,0,0" VerticalAlignment="Top"/>
-        <Button Content="Forside" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button Content="Forside" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Forside"/>
         <Button Content="Login" HorizontalAlignment="Left" Margin="340,255,0,0" VerticalAlignment="Top" Click="ButtonLogin"/>
         
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManHair.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,14 @@ namespace ManHair.View
     /// </summary>
     public partial class Booking : Window
     {
+        TreatmentViewModel tvm;
         public Booking()
         {
             InitializeComponent();
+            tvm = new TreatmentViewModel();
+            DataContext = tvm;
         }
+
+
     }
 }

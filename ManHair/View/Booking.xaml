@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="Booking" Height="450" Width="800">
     <Grid>
-        
+        <ListView ItemsSource="{Binding types}" Margin="75,33,385,80">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Samlet Pris" HorizontalAlignment="Left" Margin="465,181,0,0" VerticalAlignment="Top"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="570,181,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

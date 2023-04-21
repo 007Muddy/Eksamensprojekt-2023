@@ -41,11 +41,22 @@ namespace ManHair.View
                     this.Hide();
 
                 }
+                else
+                {
+                    MessageBox.Show(avm.LoginMessage);
+                }
             }
             else
             {
                 MessageBox.Show(avm.LoginMessage);
             }
+        }
+
+        private void Button_Forside(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }
