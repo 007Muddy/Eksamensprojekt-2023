@@ -9,17 +9,21 @@ namespace ManHair.Model
     public class Treatment
     {
         public TreatmentType Type { get; set; }
+        public double Price { get; set; }
+       
+           
         public enum TreatmentType
         {
-            HairCut = 130,
-            HairDyeing = 100,
-            Shaving= 75,
-            EyebrowPlucking= 50
+            HairCut,
+            HairDyeing,
+            Shaving,
+            EyebrowPlucking
         }
 
-        public Treatment(TreatmentType type)
+        public Treatment(TreatmentType type, double price)
         {
             Type = type;
+            Price = price;
         }
     }
 }

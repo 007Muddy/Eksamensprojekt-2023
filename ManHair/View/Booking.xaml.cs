@@ -1,7 +1,9 @@
-﻿using ManHair.ViewModel;
+﻿using ManHair.Model;
+using ManHair.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,7 +21,9 @@ namespace ManHair.View
     /// Interaction logic for Booking.xaml
     /// </summary>
     public partial class Booking : Window
+        
     {
+        public double totalPrice;
         TreatmentViewModel tvm;
         public Booking()
         {
@@ -28,6 +32,14 @@ namespace ManHair.View
             DataContext = tvm;
         }
 
-
+        protected void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            totalPrice = 0;
+            foreach(Treatment treatment in Type.SelectedItems)
+            {
+                totalPrice += treatment.Price;
+            }
+            labelTotalPrice.Content = $"Total Pris: {totalPrice:C}";
+        }
     }
 }

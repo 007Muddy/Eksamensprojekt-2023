@@ -7,15 +7,16 @@
         mc:Ignorable="d"
         Title="Booking" Height="450" Width="800">
     <Grid>
-        <ListView ItemsSource="{Binding types}" Margin="75,33,385,80">
+        <ListView Name="Type" ItemsSource="{Binding types}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="60,39,400,74" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price, StringFormat='{}{0} kr'}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Samlet Pris" HorizontalAlignment="Left" Margin="465,181,0,0" VerticalAlignment="Top"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="570,181,0,0" VerticalAlignment="Top"/>
+
+        <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="60,333,0,0" VerticalAlignment="Top" Height="27" Width="117"/>
 
     </Grid>
 </Window>
