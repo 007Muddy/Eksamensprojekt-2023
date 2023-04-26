@@ -25,9 +25,11 @@ namespace ManHair.View
     {
         public double totalPrice;
         TreatmentViewModel tvm;
+        AvailabilityViewModel avm;
         public Booking()
         {
             InitializeComponent();
+            AvailableDates.BlackoutDates.AddDatesInPast();
             tvm = new TreatmentViewModel();
             DataContext = tvm;
         }
@@ -40,6 +42,11 @@ namespace ManHair.View
                 totalPrice += treatment.Price;
             }
             labelTotalPrice.Content = $"Total Pris: {totalPrice:C}";
+        }
+
+        private void ListView_AvialableDates(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Booking" Height="450" Width="800">
     <Grid>
-        <ListView Name="Type" ItemsSource="{Binding types}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="60,39,400,74" SelectionChanged="ListView_SelectionChanged">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Name="Type" ItemsSource="{Binding types}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="60,39,190,152" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
@@ -16,7 +20,21 @@
             </ListView.View>
         </ListView>
 
-        <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="60,333,0,0" VerticalAlignment="Top" Height="27" Width="117"/>
+        <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="60,255,0,0" VerticalAlignment="Top" Height="27" Width="117"/>
+        <Button Content="Bestil" HorizontalAlignment="Left" Margin="221,381,0,0" VerticalAlignment="Top" Grid.Column="1" />
+        <Calendar Name="AvailableDates" HorizontalAlignment="Left" Margin="328,36,0,0" VerticalAlignment="Top" SelectionMode="SingleDate"  IsTodayHighlighted="false" Grid.ColumnSpan="2">
+            <Calendar.BlackoutDates>
+
+            </Calendar.BlackoutDates>
+        </Calendar>
+        <ListView x:Name="Type_Copy" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="36,38,14,153" SelectionChanged="ListView_AvialableDates" Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ledige Tider" DisplayMemberBinding="{Binding Type}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate}" HorizontalAlignment="Left" Margin="353,255,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

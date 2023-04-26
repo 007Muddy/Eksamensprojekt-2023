@@ -13,8 +13,8 @@ namespace ManHair.ViewModel.Repositories
 {
     public class CostumerRepo
     {
-        private List<Customer> CostumerList = new List<Customer>(); 
-
+        
+        private List<Customer> CostumerList = new List<Customer>();
         //Reference to the connectionStrings made in App.Config and passing its name in the parameter
         private string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
 
