@@ -18,7 +18,7 @@ namespace ManHair.Model.Persistence
 
         // Load all Costumers from database and polulating into CostumerList
 
-        public void loadAllAvailabilities()
+        public List<Availability> loadAllAvailabilities()
         {
             try
             {
@@ -37,8 +37,8 @@ namespace ManHair.Model.Persistence
                             int CostumerID = dataReader.GetInt32(0);
                             DateTime Date = dataReader.GetDateTime(1).Date;
                             DateOnly date = DateOnly.FromDateTime(Date);
-                            DateTime Time = dataReader.GetDateTime(2);
-                            TimeOnly time = TimeOnly.FromDateTime(Time);
+                            TimeSpan Time = (dataReader.GetTimeSpan(2));
+                            TimeOnly time = TimeOnly.FromTimeSpan(Time);
                             Availability availability = new Availability(date, time);
                             AvailabilityList.Add(availability);
                         }
@@ -53,16 +53,25 @@ namespace ManHair.Model.Persistence
 
                 throw new Exception("An error occured while trying to fetch data from the database");
             }
+
+            return AvailabilityList;    
         }
 
-        public List<Availability> geAvailability()
+        public List<Availability> getAvailability(DateOnly date)
         {
+           List<Availability> filteredAvailibilty = new List<Availability>();
 
             if (AvailabilityList.Count == 0)
             {
-                loadAllAvailabilities();
+                List<Availability> availabilities = loadAllAvailabilities();
+                 filteredAvailibilty = availabilities.Where(availability => availability.Date == date).ToList();
+               
             }
-            return AvailabilityList;
+
+
+            return filteredAvailibilty;
+
+          
         }
         public void Add(DateOnly date, TimeOnly time)
         {

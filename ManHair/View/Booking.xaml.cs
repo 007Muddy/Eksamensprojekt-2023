@@ -26,12 +26,15 @@ namespace ManHair.View
         public double totalPrice;
         TreatmentViewModel tvm;
         AvailabilityViewModel avm;
+        MainViewModel mvm;
         public Booking()
         {
             InitializeComponent();
             AvailableDates.BlackoutDates.AddDatesInPast();
             tvm = new TreatmentViewModel();
-            DataContext = tvm;
+            mvm = new MainViewModel();
+            DataContext = mvm;
+            
         }
 
         protected void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,7 +49,7 @@ namespace ManHair.View
 
         private void ListView_AvialableDates(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
     }
 }

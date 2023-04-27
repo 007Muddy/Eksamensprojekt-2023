@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ManHair.Model;
+using ManHair.Model.Persistence;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,15 +9,18 @@ using System.Threading.Tasks;
 
 namespace ManHair.ViewModel
 {
-    public class AvailabilityViewModel : INotifyPropertyChanged
+    public class AvailabilityViewModel
     {
+        private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
+        public DateOnly Date { get; set; }
+        public TimeOnly Time { get; set; }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
+        public AvailabilityViewModel(Availability availability)
         {
-            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            this.Date = availability.Date;
+            this.Time = availability.Time;
         }
+
+       
     }
 }

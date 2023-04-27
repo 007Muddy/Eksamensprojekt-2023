@@ -57,8 +57,6 @@ namespace ManHair.ViewModel
            };
             
         }
-        public ObservableCollection<TreatmentType> GetTypes
-        { get; set; }
 
         
        public void CalculateTotalPrice(Treatment treatment)
