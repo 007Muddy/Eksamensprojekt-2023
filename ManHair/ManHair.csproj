@@ -8,8 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\hair.jpg" />
+    <None Remove="View\hair2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\hair.jpg" />
+    <Resource Include="View\hair2.jpg" />
   </ItemGroup>
 
 </Project>

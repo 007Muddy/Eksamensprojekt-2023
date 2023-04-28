@@ -58,5 +58,7 @@ namespace ManHair.View
             login.Show();
             this.Hide();
         }
+
+     
     }
 }

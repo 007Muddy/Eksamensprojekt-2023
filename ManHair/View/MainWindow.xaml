@@ -5,10 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManHair"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="460" Width="820" WindowStyle="None"
+        MouseDown="Window_MouseDown">
     <Grid>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="320,164,0,0" VerticalAlignment="Top" Click="LoginButton"/>
-        <Button Content="Registrere" HorizontalAlignment="Left" Margin="320,217,0,0" VerticalAlignment="Top" Click="RegisterButton"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <!-- Title bar -->
+        <Grid Background="#FFC57615" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+
+
+            </Grid>
+
+            <!-- Window title -->
+            <TextBlock FontSize="20" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="743" Margin="0,-2,0,0">
+                <TextBlock.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FFC57615" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Background><Run Text="Man"/><Run Language="da-dk" Text="h"/><Run Text="air"/></TextBlock>
+
+            <!-- Minimize button -->
+            <Button x:Name="MinimizeButton" Content="_" Grid.Column="1" Width="25" Height="25" Margin="5,0,5,0" VerticalAlignment="Center" FontSize="16" Foreground="White" BorderBrush="Transparent" Click="MinimizeButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FFC57615" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <!-- Close button -->
+            <Button x:Name="CloseButton" Content="X" Grid.Column="2" Width="25" Margin="5,1,5,1" FontSize="16" Foreground="White" Background="#FFBF3838" BorderBrush="Transparent" Click="CloseButton_Click"/>
+        </Grid>
+
+        <!-- Main content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="605*"/>
+                <ColumnDefinition Width="47*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="111*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="/View/hair.jpg"/>
+            </Grid.Background>
+
+
+            <StackPanel VerticalAlignment="Center" Grid.ColumnSpan="5">
+                <Button Content="Login" Width="200" Height="50" Margin="0,0,0,20" HorizontalAlignment="Center" Click="LoginButton" Background="#007ACC" Foreground="White"/>
+                <Button Content="Registrere" Width="200" Height="50" Margin="0,0,0,0" HorizontalAlignment="Center" Click="RegisterButton" Background="#007ACC" Foreground="White"/>
+            </StackPanel>
+            <TextBlock HorizontalAlignment="Left" Margin="253,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="317" FontSize="25">
+                <TextBlock.Background>
+                    <ImageBrush/>
+                </TextBlock.Background><Run Language="da-dk" Text="Welcome to Manhair salon "/></TextBlock>
+        </Grid>
     </Grid>
 </Window>
