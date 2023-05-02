@@ -6,12 +6,23 @@
         xmlns:local="clr-namespace:ManHair.View"
         mc:Ignorable="d"
         Title="Booking" Height="450" Width="800">
+    <Window.Foreground>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="Red" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Foreground>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/View/hair.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="427*"/>
+            <ColumnDefinition Width="281*"/>
+            <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
-        <ListView Name="Type" ItemsSource="{Binding TreatmentVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="60,39,190,152" SelectionChanged="ListView_SelectionChanged">
+        <ListView Name="Type" ItemsSource="{Binding TreatmentVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="60,39,190,152" SelectionChanged="ListView_SelectionChanged" Opacity="0.4" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
@@ -20,21 +31,28 @@
             </ListView.View>
         </ListView>
 
-        <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="60,255,0,0" VerticalAlignment="Top" Height="27" Width="117"/>
-        <Button Content="Bestil" HorizontalAlignment="Left" Margin="221,381,0,0" VerticalAlignment="Top" Grid.Column="1" />
-        <Calendar Name="AvailableDates" SelectedDate="{Binding SelectedDate}"  HorizontalAlignment="Left" Margin="328,36,0,0" VerticalAlignment="Top" SelectionMode="SingleDate"  IsTodayHighlighted="false" Grid.ColumnSpan="2">
+        <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="60,255,0,0" VerticalAlignment="Top" Height="27" Width="117" Grid.ColumnSpan="2"/>
+        <Button Content="Bestil" HorizontalAlignment="Left" Margin="221,381,0,0" VerticalAlignment="Top" Grid.Column="2" />
+        <Calendar Name="AvailableDates" SelectedDate="{Binding sd}"  HorizontalAlignment="Left" Margin="255,36,0,0" VerticalAlignment="Top" SelectionMode="SingleDate"  IsTodayHighlighted="false" Grid.ColumnSpan="2" Opacity="0.5" Grid.Column="1">
             <Calendar.BlackoutDates>
 
             </Calendar.BlackoutDates>
         </Calendar>
-        <ListView x:Name="Type_Copy" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="36,38,14,153" SelectionChanged="ListView_AvialableDates" Grid.Column="1">
+        <ListView x:Name="Type_Copy" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="36,38,14,153" SelectionChanged="ListView_AvialableDates" Grid.Column="2" Opacity="0.5" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ledige Tider" DisplayMemberBinding="{Binding Time}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate}" HorizontalAlignment="Left" Margin="353,255,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate}" HorizontalAlignment="Left" Margin="280,255,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock FontSize="20" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="743" Margin="2,-11,0,0" Grid.ColumnSpan="3">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFC57615" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Background><Run Text="Man"/><Run Language="da-dk" Text="h"/><Run Text="air"/></TextBlock>
 
     </Grid>
 </Window>

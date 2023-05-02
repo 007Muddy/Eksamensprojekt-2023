@@ -783,19 +783,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\M. Noureddin Bay\\.nuget\\packages\\": {}
+    "C:\\Users\\love_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\M. Noureddin Bay\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
+      "projectUniqueName": "C:\\Users\\love_\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
       "projectName": "ManHair",
-      "projectPath": "C:\\Users\\M. Noureddin Bay\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
-      "packagesPath": "C:\\Users\\M. Noureddin Bay\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\M. Noureddin Bay\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\obj\\",
+      "projectPath": "C:\\Users\\love_\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
+      "packagesPath": "C:\\Users\\love_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\love_\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\M. Noureddin Bay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\love_\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -849,7 +849,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

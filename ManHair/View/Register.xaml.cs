@@ -49,5 +49,29 @@ namespace ManHair.View
                 MessageBox.Show("Please fill all the fields");
             }
         }
+
+       
+
+        private void close_Click(object sender, RoutedEventArgs e)
+        {
+            Close ();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
     }
 }

@@ -54,11 +54,31 @@ namespace ManHair.View
 
         private void Button_Forside(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+          MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Hide();
         }
 
-     
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void ButtonBack(object sender, RoutedEventArgs e)
+        {
+MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Hide();
+        }
     }
 }
