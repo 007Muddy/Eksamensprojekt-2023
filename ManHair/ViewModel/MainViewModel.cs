@@ -26,30 +26,17 @@ namespace ManHair.ViewModel
             {
                 
                 _selectedDate = value;
-                SelectedDateOnly = DateOnly.FromDateTime(value);
+                SelectedDateOnly = DateOnly.FromDateTime(_selectedDate);
                 OnPropertyChanged(nameof(SelectedDate));
                 OnPropertyChanged(nameof(SelectedDateOnly));
             }
         }
         public DateOnly SelectedDateOnly { get; set; }
-        //private DateOnly _selectedDateOnly;
-        //public DateOnly SelectedDateOnly
-        //{
-        //    get { return _selectedDateOnly; }
-        //    set
-        //    {
-        //        _selectedDateOnly = value;
-        //        OnPropertyChanged(nameof(SelectedDateOnly));
-        //    }
-        //}
+        
         public MainViewModel()
         {
-           
-            foreach (Availability item in availabilityRepo.getAvailability(SelectedDateOnly))
-            {
-                AvailabilityViewModel availabilityViewModel = new(item);
-                AvailableVM.Add(availabilityViewModel);
-            }
+
+            GetAvailability();
             foreach (Treatment item in treatmentRepo.getTreatments())
             {
                 TreatmentViewModel treatmentViewModel = new(item);
@@ -59,13 +46,22 @@ namespace ManHair.ViewModel
 
         }
 
+        public void GetAvailability()
+        {
+            AvailableVM.Clear();
+            foreach (Availability item in availabilityRepo.getAvailability(SelectedDateOnly))
+            {
+                AvailabilityViewModel availabilityViewModel = new(item);
+                AvailableVM.Add(availabilityViewModel);
+            }
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
 
 
     }

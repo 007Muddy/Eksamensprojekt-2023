@@ -20,6 +20,7 @@ namespace ManHair.Model.Persistence
 
         public List<Availability> loadAllAvailabilities()
         {
+            AvailabilityList.Clear();
             try
             {
                 //before we can access the database we have to connect to the database, here we use SqlConnection object and refer it to the connectionstring
@@ -61,13 +62,11 @@ namespace ManHair.Model.Persistence
         {
            List<Availability> filteredAvailibilty = new List<Availability>();
 
-            if (AvailabilityList.Count == 0)
-            {
-                List<Availability> availabilities = loadAllAvailabilities();
-                 filteredAvailibilty = availabilities.Where(availability => availability.Date == date).ToList();
-               
-            }
+            //date = new DateOnly(2023, 5, 2);
+            filteredAvailibilty.Clear();
 
+            List<Availability> availabilities = loadAllAvailabilities();
+            filteredAvailibilty = availabilities.Where(availability => availability.Date == date).ToList();
 
             return filteredAvailibilty;
 

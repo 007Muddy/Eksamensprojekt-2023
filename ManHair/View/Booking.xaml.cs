@@ -48,5 +48,23 @@ namespace ManHair.View
         {
             
         }
+
+        private void Test_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void AvailableDates_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                mvm.SelectedDate = (DateTime)e.AddedItems[0];
+            }
+            mvm.GetAvailability();
+        }
+
+        private void Order_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
