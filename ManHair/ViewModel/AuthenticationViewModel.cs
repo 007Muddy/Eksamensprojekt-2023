@@ -38,10 +38,6 @@ namespace ManHair.ViewModel
 
                     if (authenticationRepo.AuthenticateUser(customer) == true)
                     {
-                        //costumerRepo.getCostumers().ForEach(customer =>{ 
-                        //    string name = customer.Name;
-                        //    LoginMessage = $"Login was successfull: Welcome {name}";
-                        //});
 
                         List<Customer> customers = customerRepo.getCostumers();
                         List<Customer> filteredCustomers = customers.Where(customer => customer.Email == email).ToList();

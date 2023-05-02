@@ -22,19 +22,21 @@
 
         <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="60,255,0,0" VerticalAlignment="Top" Height="27" Width="117"/>
         <Button Content="Bestil" HorizontalAlignment="Left" Margin="221,381,0,0" VerticalAlignment="Top" Grid.Column="1" />
-        <Calendar Name="AvailableDates" SelectedDate="{Binding SelectedDate}"  HorizontalAlignment="Left" Margin="328,36,0,0" VerticalAlignment="Top" SelectionMode="SingleDate"  IsTodayHighlighted="false" Grid.ColumnSpan="2">
+        <Calendar Name="AvailableDates" SelectedDate="{Binding SelectedDate, StringFormat=d}"  HorizontalAlignment="Left" Margin="328,36,0,0" VerticalAlignment="Top" SelectionMode="SingleDate"  IsTodayHighlighted="false" Grid.ColumnSpan="2">
             <Calendar.BlackoutDates>
 
             </Calendar.BlackoutDates>
         </Calendar>
-        <ListView x:Name="Type_Copy" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="36,38,14,153" SelectionChanged="ListView_AvialableDates" Grid.Column="1">
+        <ListView x:Name="AvailableTimeSlots" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="36,38,14,153" SelectionChanged="ListView_AvialableDates" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ledige Tider" DisplayMemberBinding="{Binding Time}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate}" HorizontalAlignment="Left" Margin="353,255,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate, StringFormat=d}" HorizontalAlignment="Left" Margin="353,255,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding SelectedDate, StringFormat=d}" HorizontalAlignment="Left" Margin="353,304,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding SelectedDateOnly, StringFormat=d}" HorizontalAlignment="Left" Margin="353,346,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

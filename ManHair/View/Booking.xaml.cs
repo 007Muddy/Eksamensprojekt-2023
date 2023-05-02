@@ -24,14 +24,11 @@ namespace ManHair.View
         
     {
         public double totalPrice;
-        TreatmentViewModel tvm;
-        AvailabilityViewModel avm;
         MainViewModel mvm;
         public Booking()
         {
             InitializeComponent();
             AvailableDates.BlackoutDates.AddDatesInPast();
-            tvm = new TreatmentViewModel();
             mvm = new MainViewModel();
             DataContext = mvm;
             
@@ -40,7 +37,7 @@ namespace ManHair.View
         protected void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             totalPrice = 0;
-            foreach(Treatment treatment in Type.SelectedItems)
+            foreach(TreatmentViewModel treatment in Type.SelectedItems)
             {
                 totalPrice += treatment.Price;
             }

@@ -12,10 +12,10 @@ namespace ManHair.ViewModel
 {
     public class TreatmentViewModel : INotifyPropertyChanged
     {
-        private double price;
+        
         public TreatmentType Type { get; set; }
         public double Price
-        { get { return price; } set { }
+        { get; set;
             
         }
         private double totalPrice;
@@ -38,24 +38,10 @@ namespace ManHair.ViewModel
                 OnPropertyChanged("SelectedType");
             }
         }
-        public List<Treatment> types { get; set; }
-
-
-
-        public List<Treatment> ReturnAllTypes()
+        public TreatmentViewModel(Treatment treatment)
         {
-            return types;
-        }
-        public TreatmentViewModel()
-        {
-            types = new List<Treatment>
-           {
-               new Treatment(TreatmentType.HairCut, 130),
-               new Treatment(TreatmentType.HairDyeing, 100),
-               new Treatment(TreatmentType.Shaving, 75),
-               new Treatment(TreatmentType.EyebrowPlucking, 50)
-           };
-            
+            this.Type = treatment.Type;
+            this.Price = treatment.Price;
         }
 
         

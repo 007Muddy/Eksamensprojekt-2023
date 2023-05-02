@@ -17,13 +17,14 @@ namespace ManHair.ViewModel
         private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
         private TreatmentRepo treatmentRepo = new TreatmentRepo();
         public ObservableCollection<AvailabilityViewModel> AvailableVM { get; set; } = new();
-        public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; }= new ();
+        public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; } = new ();
         private DateTime _selectedDate;
         public DateTime SelectedDate
         {
             get { return _selectedDate; }
             set
             {
+                
                 _selectedDate = value;
                 SelectedDateOnly = DateOnly.FromDateTime(value);
                 OnPropertyChanged(nameof(SelectedDate));
@@ -49,7 +50,12 @@ namespace ManHair.ViewModel
                 AvailabilityViewModel availabilityViewModel = new(item);
                 AvailableVM.Add(availabilityViewModel);
             }
-            
+            foreach (Treatment item in treatmentRepo.getTreatments())
+            {
+                TreatmentViewModel treatmentViewModel = new(item);
+                TreatmentVM.Add(treatmentViewModel);
+            }
+
 
         }
 

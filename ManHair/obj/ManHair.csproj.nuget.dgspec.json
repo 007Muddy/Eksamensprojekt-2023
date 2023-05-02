@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {}
+    "C:\\Users\\suner\\OneDrive\\Skrivebord\\EksamenProjekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {}
   },
   "projects": {
-    "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {
+    "C:\\Users\\suner\\OneDrive\\Skrivebord\\EksamenProjekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
+        "projectUniqueName": "C:\\Users\\suner\\OneDrive\\Skrivebord\\EksamenProjekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
         "projectName": "ManHair",
-        "projectPath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
-        "packagesPath": "C:\\Users\\farha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\obj\\",
+        "projectPath": "C:\\Users\\suner\\OneDrive\\Skrivebord\\EksamenProjekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
+        "packagesPath": "C:\\Users\\suner\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\suner\\OneDrive\\Skrivebord\\EksamenProjekt\\Eksamensprojekt-2023\\ManHair\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\farha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\suner\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
