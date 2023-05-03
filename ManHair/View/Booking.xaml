@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManHair.View"
         mc:Ignorable="d"
-        Title="Booking" Height="450" Width="800">
+        Title="Booking" Height="450" Width="800" WindowStyle="None">
     <Window.Foreground>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -46,13 +46,23 @@
             </ListView.View>
         </ListView>
         <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate}" HorizontalAlignment="Left" Margin="280,255,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock FontSize="20" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="743" Margin="2,-11,0,0" Grid.ColumnSpan="3">
+        <TextBlock FontSize="20" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="798" Margin="2,-11,0,0" Grid.ColumnSpan="4">
             <TextBlock.Background>
+
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
                     <GradientStop Color="#FFC57615" Offset="1"/>
                 </LinearGradientBrush>
             </TextBlock.Background><Run Text="Man"/><Run Language="da-dk" Text="h"/><Run Text="air"/></TextBlock>
+        <Button x:Name="MinimizeButton" Content="-" Grid.Column="2" Width="25" Height="25" Margin="236,-9,20,0" VerticalAlignment="Top" FontSize="16" Foreground="White" BorderBrush="Transparent" Click="MinimizeButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Red"/>
+                    <GradientStop Color="#FF6F6962" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
+        <Button x:Name="CloseButton" Content="X" Grid.Column="2" Margin="266,-9,10,434" FontSize="16" Foreground="White" Background="#FFBF3838" BorderBrush="Transparent" Click="CloseButton_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
