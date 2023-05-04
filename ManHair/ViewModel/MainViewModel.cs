@@ -3,6 +3,7 @@ using ManHair.Model.Persistence;
 using ManHair.ViewModel.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
@@ -16,15 +17,19 @@ namespace ManHair.ViewModel
     {
         private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
         private TreatmentRepo treatmentRepo = new TreatmentRepo();
+        private OrdersRepo orderRepo = new OrdersRepo();
         public ObservableCollection<AvailabilityViewModel> AvailableVM { get; set; } = new();
         public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; } = new ();
+        public ObservableCollection<TreatmentViewModel> SelectedTreatmentVM { get; set; } = new();
+        public ObservableCollection<AuthenticationViewModel> AuthenticationViewModelVM { get; set; } = new();
+
+        public string SelectedTime { get; set; }
         private DateTime _selectedDate;
         public DateTime SelectedDate
         {
             get { return _selectedDate; }
             set
             {
-                
                 _selectedDate = value;
                 SelectedDateOnly = DateOnly.FromDateTime(_selectedDate);
                 OnPropertyChanged(nameof(SelectedDate));
@@ -43,7 +48,21 @@ namespace ManHair.ViewModel
                 TreatmentVM.Add(treatmentViewModel);
             }
 
+            
+        }
 
+
+
+        public void BookOrder()
+        {
+            foreach (AuthenticationViewModel item2 in AuthenticationViewModelVM)
+            {
+                foreach (TreatmentViewModel item in SelectedTreatmentVM)
+                {
+                    orderRepo.Add(item2.getID(),SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, item.Price, 1);
+                }
+            }
+            
         }
 
         public void GetAvailability()
@@ -53,8 +72,11 @@ namespace ManHair.ViewModel
             {
                 AvailabilityViewModel availabilityViewModel = new(item);
                 AvailableVM.Add(availabilityViewModel);
+                
             }
         }
+
+       
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

@@ -66,7 +66,8 @@ namespace ManHair.Model.Persistence
             filteredAvailibilty.Clear();
 
             List<Availability> availabilities = loadAllAvailabilities();
-            filteredAvailibilty = availabilities.Where(availability => availability.Date == date).ToList();
+            filteredAvailibilty = availabilities.Where(availability => availability.Date == date)
+                .OrderBy(availability => availability.Time).ToList();
 
             return filteredAvailibilty;
 

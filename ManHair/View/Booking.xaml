@@ -11,7 +11,7 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <ListView Name="Type" ItemsSource="{Binding TreatmentVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="60,39,190,152" SelectionChanged="ListView_SelectionChanged">
+        <ListView Name="Type" ItemsSource="{Binding TreatmentVM}" SelectedItem="{Binding SelectedTreatmentVM}" SelectionMode="Multiple" Margin="60,39,190,152" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
@@ -27,10 +27,10 @@
 
             </Calendar.BlackoutDates>
         </Calendar>
-        <ListView x:Name="AvailableTimeSlots" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedAvailability}" SelectionMode="Single" Margin="36,38,14,153" SelectionChanged="ListView_AvialableDates" Grid.Column="1">
+        <ListView x:Name="AvailableTimeSlots" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedTime}" SelectionMode="Single" Margin="36,38,14,153" SelectionChanged="ListView_AvialableTime" Grid.Column="1">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ledige Tider" DisplayMemberBinding="{Binding Time}"/>
+                    <GridViewColumn Header="Ledige Tider" DisplayMemberBinding="{Binding Time, StringFormat={}{0:HH:mm}}"/>
                 </GridView>
             </ListView.View>
         </ListView>

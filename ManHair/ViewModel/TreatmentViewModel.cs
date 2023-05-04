@@ -13,7 +13,7 @@ namespace ManHair.ViewModel
     public class TreatmentViewModel : INotifyPropertyChanged
     {
         
-        public TreatmentType Type { get; set; }
+        public ObservableCollection<TreatmentType> Type { get; set; }
         public double Price
         { get; set;
             
@@ -28,13 +28,13 @@ namespace ManHair.ViewModel
                 OnPropertyChanged("TotalPrice");
             }
         }
-        private TreatmentType selectedType;
-        public TreatmentType SelectedType
+        private ObservableCollection<TreatmentType> selectedTypes;
+        public ObservableCollection<TreatmentType> SelectedTypes
         {
-            get => selectedType;
+            get => selectedTypes;
             set
             {
-                selectedType = value;
+                selectedTypes = value;
                 OnPropertyChanged("SelectedType");
             }
         }

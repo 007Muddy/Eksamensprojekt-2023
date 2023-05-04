@@ -36,17 +36,27 @@ namespace ManHair.View
 
         protected void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+            
             totalPrice = 0;
             foreach(TreatmentViewModel treatment in Type.SelectedItems)
             {
                 totalPrice += treatment.Price;
+                mvm.SelectedTreatmentVM.Add((treatment));
+
             }
             labelTotalPrice.Content = $"Total Pris: {totalPrice:C}";
+
+            
         }
 
-        private void ListView_AvialableDates(object sender, SelectionChangedEventArgs e)
+        private void ListView_AvialableTime(object sender, SelectionChangedEventArgs e)
         {
-            
+            foreach (AvailabilityViewModel availableTime in AvailableTimeSlots.SelectedItems)
+            {
+                mvm.SelectedTime = availableTime.Time.ToString("HH:mm:ss");
+
+            }
         }
 
         private void Test_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -65,6 +75,9 @@ namespace ManHair.View
         private void Order_Click(object sender, RoutedEventArgs e)
         {
 
+
+           
+            mvm.BookOrder();
         }
     }
 }

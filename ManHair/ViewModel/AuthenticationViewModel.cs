@@ -13,12 +13,14 @@ namespace ManHair.ViewModel
         public string User { get; set; }
         public string Password { get; set; }
         public string LoginMessage { get; set; }
+        public string Email { get; set; }
         private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
         private CostumerRepo customerRepo = new CostumerRepo(); 
         public AuthenticationViewModel(Authentication auth)
         {
             this.User = auth.User;
             this.Password = auth.Password;
+            
         }
 
         public AuthenticationViewModel()
@@ -27,6 +29,7 @@ namespace ManHair.ViewModel
 
         public bool AccessGranted(string email, string password)
         {
+            Email = email;
             bool access= false;
 
             try
@@ -42,11 +45,13 @@ namespace ManHair.ViewModel
                         List<Customer> customers = customerRepo.getCostumers();
                         List<Customer> filteredCustomers = customers.Where(customer => customer.Email == email).ToList();
 
+                     
                         foreach (Customer customerName in filteredCustomers)
                         {
                             string name = customerName.Name;
                             LoginMessage = $"Login was successful: Welcome {name}";
                         }
+                       
                         access = true;
                     }
                     else
@@ -64,6 +69,18 @@ namespace ManHair.ViewModel
             return access;
         }
 
+        public int getID()
+        {
+            int ID = 0;
+            List<Customer> customers = customerRepo.getCostumers();
+            List<Customer> filteredCustomers = customers.Where(customer => customer.Email == Email).ToList();
+            foreach (Customer customerID in filteredCustomers)
+            {
+                ID = customerID.ID;
+
+            }
+            return ID;
+        }
         public bool CreateNewCustomer(string name, int phone ,string email, string password)
         {
             bool Registersucces = false;

@@ -36,12 +36,12 @@ namespace ManHair.ViewModel.Repositories
 
                         while (dataReader.Read())
                         {
-                            int CostumerID = dataReader.GetInt32(0);
+                            int ID = dataReader.GetInt32(0);
                             string Name = dataReader.GetString(1);
                             int phone = dataReader.GetInt32(2);
                             string Email = dataReader.GetString(3);
                             string Password = dataReader.GetString(4);
-                            Customer costumer = new Customer(Name, phone, Email, Password);
+                            Customer costumer = new Customer(ID, Name, phone, Email, Password);
                             CostumerList.Add(costumer);
                         }
                        
