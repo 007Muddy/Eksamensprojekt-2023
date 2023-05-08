@@ -32,11 +32,11 @@ namespace ManHair.View
         private void RegisterButton(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
-            if (txtName != null && txtTlf != null && txtEmail != null && txtAdgangskode != null && txtBekræftAdgangskode != null)
+            if (txtEmail != null && txtTlf != null && txtEmail != null && txtAdgangskode != null && txtBekræftAdgangskode != null)
             {
                 if (txtAdgangskode.Password == txtBekræftAdgangskode.Password)
                 {
-                    if (avm.CreateNewCustomer(txtName.Text,Int32.Parse(txtTlf.Text),txtEmail.Text,txtAdgangskode.Password))
+                    if (avm.CreateNewCustomer(txtEmail.Text,Int32.Parse(txtTlf.Text),txtEmail.Text,txtAdgangskode.Password))
                     {
                         MessageBox.Show("You have successfully registered");
                         main.Show();

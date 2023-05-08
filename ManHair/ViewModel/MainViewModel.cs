@@ -16,8 +16,12 @@ namespace ManHair.ViewModel
     {
         private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
         private TreatmentRepo treatmentRepo = new TreatmentRepo();
+        private OrdersRepo ordersRepo = new OrdersRepo(); 
+        
         public ObservableCollection<AvailabilityViewModel> AvailableVM { get; set; } = new();
         public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; }= new ();
+        public ObservableCollection<OrdersViewModel> OrdersVM { get; set; } = new();
+
         private DateTime _selectedDate;
         public DateTime SelectedDate
         {
@@ -44,12 +48,17 @@ namespace ManHair.ViewModel
         public MainViewModel()
         {
            
-            foreach (Availability item in availabilityRepo.getAvailability(SelectedDateOnly))
+            //foreach (Availability item in availabilityRepo.getAvailability(SelectedDateOnly))
+            //{
+            //    AvailabilityViewModel availabilityViewModel = new(item);
+            //    AvailableVM.Add(availabilityViewModel);
+            //}
+            foreach (Orders item1 in ordersRepo.GetOrders())
             {
-                AvailabilityViewModel availabilityViewModel = new(item);
-                AvailableVM.Add(availabilityViewModel);
+                OrdersViewModel ordersViewModel = new(item1);
+                OrdersVM.Add(ordersViewModel);
+
             }
-            
 
         }
 

@@ -223,3 +223,5 @@ C:\Users\I.H.D\OneDrive\Desktop\eks 2023\Eksamensprojekt-2023\ManHair\obj\Debug\
 C:\Users\I.H.D\OneDrive\Desktop\eks 2023\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.pdb
 C:\Users\I.H.D\OneDrive\Desktop\eks 2023\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.genruntimeconfig.cache
 C:\Users\I.H.D\OneDrive\Desktop\eks 2023\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ref\ManHair.dll
+C:\Users\love_\OneDrive - UCL Erhvervsakademi og Professionshøjskole\Sem.2\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Admincontrol.g.cs
+C:\Users\love_\OneDrive - UCL Erhvervsakademi og Professionshøjskole\Sem.2\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Admincontrol.baml

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManHair.View"
         mc:Ignorable="d"
-        Title="Booking" Height="450" Width="800" WindowStyle="None">
+        Title="Booking" Height="450" Width="800" WindowStyle="None"
+       MouseDown="Window_MouseDown">
+
     <Window.Foreground>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -17,12 +19,15 @@
             <ImageBrush ImageSource="/View/hair.jpg"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="427*"/>
-            <ColumnDefinition Width="281*"/>
-            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <ListView Name="Type" ItemsSource="{Binding TreatmentVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="60,39,190,152" SelectionChanged="ListView_SelectionChanged" Opacity="0.4" Grid.ColumnSpan="2">
+        <ListView Name="Type" ItemsSource="{Binding TreatmentVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="0,39,190,152" SelectionChanged="ListView_SelectionChanged" Opacity="0.4" Grid.ColumnSpan="2" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
@@ -31,22 +36,31 @@
             </ListView.View>
         </ListView>
 
-        <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="60,255,0,0" VerticalAlignment="Top" Height="27" Width="117" Grid.ColumnSpan="2"/>
-        <Button Content="Bestil" HorizontalAlignment="Left" Margin="221,381,0,0" VerticalAlignment="Top" Grid.Column="2" />
-        <Calendar Name="AvailableDates" SelectedDate="{Binding sd}"  HorizontalAlignment="Left" Margin="255,36,0,0" VerticalAlignment="Top" SelectionMode="SingleDate"  IsTodayHighlighted="false" Grid.ColumnSpan="2" Opacity="0.5" Grid.Column="1">
+        <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="0,255,0,0" VerticalAlignment="Top" Height="27" Width="117" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button Content="Bestil" HorizontalAlignment="Left" Margin="51,381,0,0" VerticalAlignment="Top" Grid.Column="4" />
+        <Calendar Name="AvailableDates" SelectedDate="{Binding sd}"  HorizontalAlignment="Left" Margin="255,36,0,0" VerticalAlignment="Top" SelectionMode="SingleDate"  IsTodayHighlighted="false" Grid.ColumnSpan="2" Opacity="0.5" Grid.Column="2">
             <Calendar.BlackoutDates>
 
             </Calendar.BlackoutDates>
         </Calendar>
-        <ListView x:Name="Type_Copy" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="36,38,14,153" SelectionChanged="ListView_AvialableDates" Grid.Column="2" Opacity="0.5" Grid.ColumnSpan="2">
+        <ListView x:Name="Type_Copy" SelectedItem="{Binding SelectedTreatment}" SelectionMode="Multiple" Margin="36,38,10,153" SelectionChanged="ListView_AvialableDates" Grid.Column="3" Opacity="0.5" Grid.ColumnSpan="3">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ledige Tider" DisplayMemberBinding="{Binding Time}"/>
                 </GridView>
             </ListView.View>
+            <StackPanel Height="100" Width="100"/>
         </ListView>
-        <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate}" HorizontalAlignment="Left" Margin="280,255,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBlock FontSize="20" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="798" Margin="2,-11,0,0" Grid.ColumnSpan="4">
+        <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate}" HorizontalAlignment="Left" Margin="280,255,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <TextBlock FontSize="20" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="793" Grid.ColumnSpan="7" Height="25" RenderTransformOrigin="0.5,0.5" Margin="7,0,0,0">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
             <TextBlock.Background>
 
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -54,7 +68,7 @@
                     <GradientStop Color="#FFC57615" Offset="1"/>
                 </LinearGradientBrush>
             </TextBlock.Background><Run Text="Man"/><Run Language="da-dk" Text="h"/><Run Text="air"/></TextBlock>
-        <Button x:Name="MinimizeButton" Content="-" Grid.Column="2" Width="25" Height="25" Margin="236,-9,20,0" VerticalAlignment="Top" FontSize="16" Foreground="White" BorderBrush="Transparent" Click="MinimizeButton_Click">
+        <Button x:Name="MinimizeButton" Content="-" Grid.Column="4" Height="24" Margin="61,1,19,0" VerticalAlignment="Top" FontSize="16" Foreground="White" BorderBrush="Transparent" Click="MinimizeButton_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Red"/>
@@ -63,6 +77,13 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="CloseButton" Content="X" Grid.Column="2" Margin="266,-9,10,434" FontSize="16" Foreground="White" Background="#FFBF3838" BorderBrush="Transparent" Click="CloseButton_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="close" Content="X" Height="24" Width="30" Click="close_Click" Grid.Column="4" Margin="98,1,2,425" Grid.ColumnSpan="3">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFE02323" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

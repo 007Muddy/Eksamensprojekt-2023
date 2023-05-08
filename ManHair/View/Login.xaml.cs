@@ -80,5 +80,10 @@ MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Hide();
         }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
