@@ -10,15 +10,14 @@ namespace ManHair.ViewModel
 {
     public class AuthenticationViewModel
     {
-        public string User { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
         public string LoginMessage { get; set; }
-        public string Email { get; set; }
         private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
         private CostumerRepo customerRepo = new CostumerRepo(); 
         public AuthenticationViewModel(Authentication auth)
         {
-            this.User = auth.User;
+            this.Email = auth.Email;
             this.Password = auth.Password;
             
         }
@@ -38,8 +37,7 @@ namespace ManHair.ViewModel
                 {
                     
                     Customer customer = new Customer(email, password);
-                    
-
+                    authenticationRepo.Add(email, password);
                     if (authenticationRepo.AuthenticateUser(customer) == true)
                     {
 
@@ -74,13 +72,17 @@ namespace ManHair.ViewModel
         {
             int ID = 0;
             List<Customer> customers = customerRepo.getCostumers();
-            List<Customer> filteredCustomers = customers.Where(customer => customer.Email == Email).ToList();
+            List<Customer> filteredCustomers = customers.Where(customer => customer.Email == authenticationRepo.getEmail()).ToList();
             foreach (Customer customerID in filteredCustomers)
             {
                 ID = customerID.ID;
 
             }
             return ID;
+        }
+        public void RemoveAuthentication()
+        {
+            authenticationRepo.Remove();
         }
         public bool CreateNewCustomer(string name, int phone ,string email, string password)
         {

@@ -34,7 +34,16 @@ namespace ManHair.View
 
         }
 
-        protected void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to exit?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            mvm.AVM.RemoveAuthentication();
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
 
@@ -80,11 +89,10 @@ namespace ManHair.View
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)
-        {
-
-
-           
+        {   
             mvm.BookOrder();
+            MessageBox.Show("Din bookning er bestilt :)");
         }
+        
     }
 }

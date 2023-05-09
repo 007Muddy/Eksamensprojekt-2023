@@ -8,12 +8,12 @@ namespace ManHair.Model
 {
     public class Authentication
     {
-        public string User { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
 
-        public Authentication(string user, string password)
+        public Authentication(string email, string password)
         {
-            User = user;
+            Email = email;
             Password = password;
         }
     }

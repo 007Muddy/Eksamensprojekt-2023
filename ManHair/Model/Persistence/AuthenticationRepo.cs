@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Dynamic;
 using System.Linq;
@@ -15,8 +16,8 @@ namespace ManHair.ViewModel.Repositories
     public class AuthenticationRepo
     {
         public string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
-        public Customer customer { get; set; }  
-        public string Email { get; set; }
+        public Customer customer { get; set; }
+        public List<Authentication> authentications { get; set; }
 
        public bool AuthenticateUser(Customer customer)
         {
@@ -84,10 +85,88 @@ namespace ManHair.ViewModel.Repositories
             }
             return accepted;
         }
-        public  getEmail()
+        // Adding the customer login information to the Authentication Table
+        public void Add(string email, string password)
         {
 
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+
+                    using (SqlCommand command = new SqlCommand("INSERT INTO Authentication (Email, Password)"
+                        + " VALUES(@email, @password)", sqlConnection))
+                    {
+                        
+                        command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
+                        command.Parameters.Add("@password", SqlDbType.NVarChar).Value = password;
+                        command.ExecuteNonQuery();
+
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+
+                throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
+            }
         }
 
+        public void Remove()
+        {
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+
+                    using (SqlCommand command = new SqlCommand("TRUNCATE TABLE Authentication", sqlConnection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+
+                throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
+            }
+        }
+        public string getEmail()
+        {
+
+            try
+            {
+                //before we can access the database we have to connect to the database, here we use SqlConnection object and refer it to the connectionstring
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    //Now Connection is open and we can run a Query on the database
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SELECT Email FROM Authentication", connection))
+                    {
+                        SqlDataReader dataReader = command.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            string email = dataReader.GetString(0);
+                            return email;
+                        }
+
+                    }
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+
+                throw new Exception("An error occured while trying to fetch data from the database");
+            }
+            return null;
+        }
+            
     }
 }
+
+

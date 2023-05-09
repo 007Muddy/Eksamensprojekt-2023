@@ -23,7 +23,7 @@ namespace ManHair.ViewModel
         public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; } = new();
         
         public AuthenticationViewModel AVM = new AuthenticationViewModel();
-        public string Email { get; set; }   
+          
        
 
         public string SelectedTime { get; set; }
@@ -72,7 +72,6 @@ namespace ManHair.ViewModel
                 TreatmentViewModel treatmentViewModel = new(item);
                 TreatmentVM.Add(treatmentViewModel);
             }
-            AVM.Email = "3w4";
             
         }
 

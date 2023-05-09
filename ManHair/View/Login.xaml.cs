@@ -21,11 +21,11 @@ namespace ManHair.View
     public partial class Login : Window
     {
         AuthenticationViewModel avm;
-        MainViewModel mvm;
+
         public Login()
         {
             InitializeComponent();
-            mvm = new MainViewModel();
+
             avm = new AuthenticationViewModel();
             DataContext = avm;
         }
@@ -37,8 +37,6 @@ namespace ManHair.View
                 if (avm.AccessGranted(txtEmail.Text, txtPassword.Password))
                 {
                     MessageBox.Show(avm.LoginMessage);
-                    mvm.AVM.Email = txtEmail.Text;
-                    mvm.Email = txtEmail.Text;
                     Booking bookingWindow = new Booking();  
                     bookingWindow.Show();
                     this.Hide();
@@ -47,6 +45,7 @@ namespace ManHair.View
                 else
                 {
                     MessageBox.Show(avm.LoginMessage);
+                    avm.RemoveAuthentication();
                 }
             }
             else
@@ -57,8 +56,8 @@ namespace ManHair.View
 
         private void Button_Forside(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            MainWindow main = new MainWindow();
+            main.Show();
             this.Hide();
         }
     }
