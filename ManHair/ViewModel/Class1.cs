@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
-namespace ManHair.Model.Persistence
+namespace ManHair.ViewModel
 {
-    public class AdminRepo
+    internal class Class1
     {
-
-       
-
     }
 }

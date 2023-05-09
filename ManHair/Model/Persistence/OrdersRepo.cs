@@ -28,7 +28,6 @@ namespace ManHair.ViewModel.Repositories
                             string orderDate = dataReader.GetString(1);
                             string time = dataReader.GetString(2);
                             double price = dataReader.GetDouble(3);
-
                             string treatment = dataReader.GetString(4); 
                             int customerID = dataReader.GetInt32(5);
 
