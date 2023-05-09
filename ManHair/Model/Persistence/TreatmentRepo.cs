@@ -10,10 +10,10 @@ namespace ManHair.Model.Persistence
 {
     public class TreatmentRepo
     {
-        private ObservableCollection<TreatmentType> type { get; set; }
+        private TreatmentType type { get; set; }
         private double price { get; set; }
         public List<Treatment> types { get; set; }
-
+      
 
 
         public List<Treatment> ReturnAllTypes()
@@ -25,10 +25,10 @@ namespace ManHair.Model.Persistence
         {
             types = new List<Treatment>
     {
-        new Treatment(new ObservableCollection<TreatmentType> { TreatmentType.HairCut }, 130),
-        new Treatment(new ObservableCollection<TreatmentType> { TreatmentType.HairDyeing }, 100),
-        new Treatment(new ObservableCollection<TreatmentType> { TreatmentType.Shaving }, 75),
-        new Treatment(new ObservableCollection<TreatmentType> { TreatmentType.EyebrowPlucking }, 50)
+        new Treatment(TreatmentType.HairCut, 130),
+        new Treatment(TreatmentType.HairDyeing, 100),
+        new Treatment(TreatmentType.Shaving, 75),
+        new Treatment(TreatmentType.EyebrowPlucking, 50)
     };
             return types;
         }

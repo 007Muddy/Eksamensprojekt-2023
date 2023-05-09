@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ManHair.Model.Treatment;
 
 namespace ManHair.ViewModel
 {
@@ -19,9 +20,11 @@ namespace ManHair.ViewModel
         private TreatmentRepo treatmentRepo = new TreatmentRepo();
         private OrdersRepo orderRepo = new OrdersRepo();
         public ObservableCollection<AvailabilityViewModel> AvailableVM { get; set; } = new();
-        public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; } = new ();
-        public ObservableCollection<TreatmentViewModel> SelectedTreatmentVM { get; set; } = new();
-        public ObservableCollection<AuthenticationViewModel> AuthenticationViewModelVM { get; set; } = new();
+        public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; } = new();
+        
+        public AuthenticationViewModel AVM = new AuthenticationViewModel();
+        public string Email { get; set; }   
+       
 
         public string SelectedTime { get; set; }
         private DateTime _selectedDate;
@@ -37,7 +40,29 @@ namespace ManHair.ViewModel
             }
         }
         public DateOnly SelectedDateOnly { get; set; }
-        
+        private double totalPrice;
+        public double TotalPrice
+        {
+            get => totalPrice;
+            set
+            {
+                totalPrice = value;
+                OnPropertyChanged("TotalPrice");
+            }
+        }
+
+        private TreatmentType selectedTypes;
+        public TreatmentType SelectedTypes
+        {
+            get => selectedTypes;
+            set
+            {
+
+                selectedTypes = value;
+                OnPropertyChanged("SelectedType");
+            }
+        }
+
         public MainViewModel()
         {
 
@@ -47,7 +72,7 @@ namespace ManHair.ViewModel
                 TreatmentViewModel treatmentViewModel = new(item);
                 TreatmentVM.Add(treatmentViewModel);
             }
-
+            AVM.Email = "3w4";
             
         }
 
@@ -55,13 +80,10 @@ namespace ManHair.ViewModel
 
         public void BookOrder()
         {
-            foreach (AuthenticationViewModel item2 in AuthenticationViewModelVM)
-            {
-                foreach (TreatmentViewModel item in SelectedTreatmentVM)
-                {
-                    orderRepo.Add(item2.getID(),SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, item.Price, 1);
-                }
-            }
+              
+                    orderRepo.Add(AVM.getID(),SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
+                
+            
             
         }
 
@@ -75,8 +97,12 @@ namespace ManHair.ViewModel
                 
             }
         }
+        public void CalculateTotalPrice(Treatment treatment)
+        {
+            TotalPrice += treatment.Price;
+        }
 
-       
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

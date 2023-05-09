@@ -10,53 +10,20 @@ using static ManHair.Model.Treatment;
 
 namespace ManHair.ViewModel
 {
-    public class TreatmentViewModel : INotifyPropertyChanged
+    public class TreatmentViewModel 
     {
-        
-        public ObservableCollection<TreatmentType> Type { get; set; }
+
+        public TreatmentType Type { get; set; }
         public double Price
-        { get; set;
-            
-        }
-        private double totalPrice;
-        public double TotalPrice
         {
-            get => totalPrice; 
-            set
-            {
-                totalPrice = value;
-                OnPropertyChanged("TotalPrice");
-            }
+            get; set;
+
         }
-        private ObservableCollection<TreatmentType> selectedTypes;
-        public ObservableCollection<TreatmentType> SelectedTypes
-        {
-            get => selectedTypes;
-            set
-            {
-                selectedTypes = value;
-                OnPropertyChanged("SelectedType");
-            }
-        }
+
         public TreatmentViewModel(Treatment treatment)
         {
-            this.Type = treatment.Type;
+            this.Type = treatment.Types;
             this.Price = treatment.Price;
         }
-
-        
-       public void CalculateTotalPrice(Treatment treatment)
-        {
-            TotalPrice += treatment.Price;
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
     }
 }

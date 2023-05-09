@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Dynamic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -15,6 +16,7 @@ namespace ManHair.ViewModel.Repositories
     {
         public string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
         public Customer customer { get; set; }  
+        public string Email { get; set; }
 
        public bool AuthenticateUser(Customer customer)
         {
@@ -82,7 +84,10 @@ namespace ManHair.ViewModel.Repositories
             }
             return accepted;
         }
+        public  getEmail()
+        {
 
+        }
 
     }
 }

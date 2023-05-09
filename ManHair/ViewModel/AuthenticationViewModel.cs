@@ -29,13 +29,14 @@ namespace ManHair.ViewModel
 
         public bool AccessGranted(string email, string password)
         {
-            Email = email;
+           
             bool access= false;
 
             try
             {
                 if (email != null && password != null)
                 {
+                    
                     Customer customer = new Customer(email, password);
                     
 

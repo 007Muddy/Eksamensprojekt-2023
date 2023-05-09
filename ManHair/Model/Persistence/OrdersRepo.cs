@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ManHair.Model;
 using System.Configuration;
+using System.Windows.Input;
 
 namespace ManHair.ViewModel.Repositories
 {
@@ -24,14 +25,15 @@ namespace ManHair.ViewModel.Repositories
                 {
                     sqlConnection.Open();
 
-                    using (SqlCommand command = new SqlCommand("INSERT INTO Orders (CustomerID, date,time, price, treatment)"
-                        + " VALUES(@ID, @date, @time, @price, @treatment)", sqlConnection))
+                    using (SqlCommand command = new SqlCommand("INSERT INTO Orders (Date, Time, Price, Treatment, CostumerID)"
+                        + " VALUES(@date, @time, @price, @treatment, @ID)", sqlConnection))
                     {
-                        command.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+                        
                         command.Parameters.Add("@date", SqlDbType.NVarChar).Value = date;
                         command.Parameters.Add("@time", SqlDbType.NVarChar).Value = time;
                         command.Parameters.Add("@price", SqlDbType.Float).Value = price;
                         command.Parameters.Add("@treatment", SqlDbType.Int).Value = treatment;
+                        command.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
                         command.ExecuteNonQuery();
 
                     }

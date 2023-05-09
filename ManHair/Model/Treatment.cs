@@ -9,21 +9,21 @@ namespace ManHair.Model
 {
     public class Treatment
     {
-        public ObservableCollection<TreatmentType> Type { get; set; }
+        public TreatmentType Types { get; set; }
         public double Price { get; set; }
        
            
-        public enum TreatmentType
+       [Flags] public enum TreatmentType
         {
             HairCut = 1,
             HairDyeing = 2,
-            Shaving =4,
+            Shaving = 4,
             EyebrowPlucking = 8 
         }
 
-        public Treatment(ObservableCollection<TreatmentType> type, double price)
+        public Treatment(TreatmentType type, double price)
         {
-            Type = type;
+            Types = type;
             Price = price;
         }
     }

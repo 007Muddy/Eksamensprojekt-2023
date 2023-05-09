@@ -21,9 +21,11 @@ namespace ManHair.View
     public partial class Login : Window
     {
         AuthenticationViewModel avm;
+        MainViewModel mvm;
         public Login()
         {
             InitializeComponent();
+            mvm = new MainViewModel();
             avm = new AuthenticationViewModel();
             DataContext = avm;
         }
@@ -35,7 +37,8 @@ namespace ManHair.View
                 if (avm.AccessGranted(txtEmail.Text, txtPassword.Password))
                 {
                     MessageBox.Show(avm.LoginMessage);
-
+                    mvm.AVM.Email = txtEmail.Text;
+                    mvm.Email = txtEmail.Text;
                     Booking bookingWindow = new Booking();  
                     bookingWindow.Show();
                     this.Hide();

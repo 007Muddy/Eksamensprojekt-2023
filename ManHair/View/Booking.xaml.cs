@@ -31,23 +31,30 @@ namespace ManHair.View
             AvailableDates.BlackoutDates.AddDatesInPast();
             mvm = new MainViewModel();
             DataContext = mvm;
-            
+
         }
 
         protected void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            
+
             totalPrice = 0;
-            foreach(TreatmentViewModel treatment in Type.SelectedItems)
+            int currentTypes = (int)mvm.SelectedTypes;
+            foreach (TreatmentViewModel treatment in Type.SelectedItems)
             {
                 totalPrice += treatment.Price;
-                mvm.SelectedTreatmentVM.Add((treatment));
-
+                mvm.SelectedTypes |= treatment.Type;
+                
             }
+            mvm.TotalPrice = totalPrice;
             labelTotalPrice.Content = $"Total Pris: {totalPrice:C}";
 
+            foreach (TreatmentViewModel treatment in e.RemovedItems.Cast<TreatmentViewModel>())
+            {
+                mvm.SelectedTypes &= ~treatment.Type;
+            }
             
+
         }
 
         private void ListView_AvialableTime(object sender, SelectionChangedEventArgs e)
