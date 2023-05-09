@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\love_\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {}
+    "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {}
   },
   "projects": {
-    "C:\\Users\\love_\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {
+    "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\love_\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
+        "projectUniqueName": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
         "projectName": "ManHair",
-        "projectPath": "C:\\Users\\love_\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
-        "packagesPath": "C:\\Users\\love_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\love_\\OneDrive - UCL Erhvervsakademi og Professionshøjskole\\Sem.2\\Eksamensprojekt-2023\\ManHair\\obj\\",
+        "projectPath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
+        "packagesPath": "C:\\Users\\farha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\farha\\OneDrive\\UCL_datamatiker\\Eksamensprojekt\\Eksamensprojekt-2023\\ManHair\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\love_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\farha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

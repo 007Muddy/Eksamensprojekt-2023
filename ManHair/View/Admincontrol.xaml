@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Admincontrol" Height="450" Width="800">
     <Grid>
-        <ListView d:ItemsSource="{Binding OrdersVM}" Background="#FFC69797" >
+        <ListView ItemsSource="{Binding OrdersVM}" Background="#FFC69797" Margin="0,0,440,25" >
             <ListView.View>
                 <GridView>
                    

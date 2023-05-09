@@ -29,7 +29,7 @@ namespace ManHair.ViewModel.Repositories
                             string time = dataReader.GetString(2);
                             double price = dataReader.GetDouble(3);
 
-                            int treatment = dataReader.GetInt32(4); 
+                            string treatment = dataReader.GetString(4); 
                             int customerID = dataReader.GetInt32(5);
 
                             Orders orders = new Orders(orderID, orderDate, time, price,  treatment,customerID);
@@ -39,6 +39,7 @@ namespace ManHair.ViewModel.Repositories
                     }
                 }
             }
+
             catch (Exception ex)
             {
                 throw new Exception("Failed to retrieve orders", ex);

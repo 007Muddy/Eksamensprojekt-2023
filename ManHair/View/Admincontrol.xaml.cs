@@ -20,7 +20,8 @@ namespace ManHair
     /// </summary>
     public partial class Admincontrol : Window
     {
-        MainViewModel mvm;
+        public MainViewModel mvm { get; set; }
+
         public Admincontrol()
         {
             InitializeComponent();

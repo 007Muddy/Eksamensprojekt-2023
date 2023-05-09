@@ -15,7 +15,7 @@ namespace ManHair.ViewModel
         public string OrderDate { get; set; }
         public string Time { get; set; }
 
-        public int Treatment { get; set; }
+        public string Treatment { get; set; }
         public double Price { get; set; }
 
         public OrdersViewModel(Orders orders) 

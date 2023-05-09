@@ -47,12 +47,13 @@ namespace ManHair.ViewModel
         //}
         public MainViewModel()
         {
-           
-            //foreach (Availability item in availabilityRepo.getAvailability(SelectedDateOnly))
-            //{
-            //    AvailabilityViewModel availabilityViewModel = new(item);
-            //    AvailableVM.Add(availabilityViewModel);
-            //}
+
+            foreach (Availability item in availabilityRepo.getAvailability(SelectedDateOnly))
+            {
+                AvailabilityViewModel availabilityViewModel = new(item);
+                AvailableVM.Add(availabilityViewModel);
+            }
+
             foreach (Orders item1 in ordersRepo.GetOrders())
             {
                 OrdersViewModel ordersViewModel = new(item1);

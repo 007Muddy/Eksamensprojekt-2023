@@ -20,7 +20,7 @@ namespace ManHair.View
    
     public partial class Register : Window
     {
-        public AuthenticationViewModel avm { get; set; }
+        AuthenticationViewModel avm { get; set; }
        
         public Register()
         {
