@@ -53,7 +53,7 @@ namespace ManHair {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ManHair;component/view/admincontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ManHair;V1.0.0.0;component/view/admincontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\Admincontrol.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

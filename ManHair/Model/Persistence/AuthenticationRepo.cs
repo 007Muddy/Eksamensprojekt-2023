@@ -1,4 +1,5 @@
 ﻿using ManHair.Model;
+using ManHair.Model.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,9 +15,10 @@ namespace ManHair.ViewModel.Repositories
     public class AuthenticationRepo
     {
         public string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
-        public Customer customer { get; set; }  
+        public Customer customer { get; set; }
+        public Admin admin1 { get; set; }
 
-       public bool AuthenticateUser(Customer customer)
+        public bool AuthenticateUser(Customer customer)
         {
             bool accepted = false;
 
@@ -26,7 +28,7 @@ namespace ManHair.ViewModel.Repositories
                 {
                     connection.Open();
 
-                    using (SqlCommand command = new  SqlCommand("SELECT Email, Password FROM Customer",connection))
+                    using (SqlCommand command = new SqlCommand("SELECT Email, Password FROM Customer", connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -81,7 +83,56 @@ namespace ManHair.ViewModel.Repositories
                 throw new Exception("Der opstod en fejl med sammenligning af password");
             }
             return accepted;
+
         }
+        public bool AdminAuthentication(Admin admin)
+        {
+            bool accepted = false;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand com = new SqlCommand("SELECT Username, Password FROM Admin ", connection))
+                    {
+                        using (SqlDataReader reader = com.ExecuteReader())
+
+                        {
+                            while (reader.Read())
+
+                            {
+                                if (admin1.UserName == reader[admin.UserName].ToString() && admin.Password == reader[admin.Password].ToString())
+
+                                {
+                                    accepted= true;
+
+                                }
+
+
+                            }
+
+
+
+                        }
+
+
+                    }
+
+                }
+            }
+            catch (SqlException e)
+            {
+
+                throw new Exception("Der opstod en fejl med sammenligning af password");
+
+            }
+
+
+            return accepted;
+
+
+        }
+
 
 
     }

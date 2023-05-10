@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModel\Class1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="View\hair.jpg" />
     <None Remove="View\hair2.jpg" />
   </ItemGroup>
