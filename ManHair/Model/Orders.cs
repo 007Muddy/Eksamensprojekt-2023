@@ -16,9 +16,9 @@ namespace ManHair.Model
         public string Time { get; set; }
      
         public double Price { get; set; }
-        public string Treatment { get; set; }
+        public List<string> Treatment { get; set; }
 
-        public Orders(int orderID, string orderDate, string time, double price, string treatment, int customerID)
+        public Orders(int orderID, string orderDate, string time, double price, List<string> treatment, int customerID)
         {
             OrderID = orderID;
             CustomerID = customerID;

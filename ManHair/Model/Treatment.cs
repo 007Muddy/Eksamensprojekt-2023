@@ -12,12 +12,12 @@ namespace ManHair.Model
         public double Price { get; set; }
        
            
-        public enum TreatmentType
+        [Flags]public enum TreatmentType
         {
-            HairCut,
-            HairDyeing,
-            Shaving,
-            EyebrowPlucking
+            HairCut = 1,
+            HairDyeing = 2,
+            Shaving = 4,
+            EyebrowPlucking = 8
         }
 
         public Treatment(TreatmentType type, double price)
