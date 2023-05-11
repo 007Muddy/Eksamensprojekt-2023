@@ -3,18 +3,94 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ManHair.View"
+        xmlns:local="clr-namespace:ManHair.View" 
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="302,174,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        Title="Login" Height="450" Width="800" WindowStyle="None"
+         MouseDown="Window_MouseDown">
+    
+    <Grid RenderTransformOrigin="0.464,0.433">
+        <Grid.Background>
+            <ImageBrush ImageSource="/View/Images/hair2.jpg"/>
+        </Grid.Background>
+
         <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="302,213,0,0"/>
 
-        <Label Content="Email" HorizontalAlignment="Left" Margin="237,170,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="237,177,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="237,209,0,0" VerticalAlignment="Top"/>
-        <Button Content="Forside" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Forside"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="340,255,0,0" VerticalAlignment="Top" Click="ButtonLogin"/>
-        
+        <Button x:Name="Login1" Content="Login" HorizontalAlignment="Center" Margin="0,268,0,0" VerticalAlignment="Top" Click="ButtonLogin" Height="48" Width="76">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
+                        <Grid>
+                            <Rectangle Fill="#C8C8C8" RadiusX="10" RadiusY="10" Opacity="0.6" Margin="2,2,0,0"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#008CBA" Offset="0"/>
+                                        <GradientStop Color="#004E98" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#004E98"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="256,268,0,0" VerticalAlignment="Top" Click="ButtonBack" Height="48" Width="76">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
+                        <Grid>
+                            <Rectangle Fill="#C8C8C8" RadiusX="10" RadiusY="10" Opacity="0.6" Margin="2,2,0,0"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#008CBA" Offset="0"/>
+                                        <GradientStop Color="#004E98" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#004E98"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBox  x:Name="txtEmail" HorizontalAlignment="Left" Margin="305,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtEmail_TextChanged"/>
 
+        <!-- Add close and minimize buttons -->
+        <Grid Margin="0,0,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="90">
+            <Button x:Name="btnMinimize" Content="-" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,30,0" Width="25" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnMinimize_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF09BE35" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnClose" Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnClose_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FFFFA11F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

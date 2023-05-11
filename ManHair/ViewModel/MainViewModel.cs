@@ -21,7 +21,8 @@ namespace ManHair.ViewModel
         private OrdersRepo orderRepo = new OrdersRepo();
         public ObservableCollection<AvailabilityViewModel> AvailableVM { get; set; } = new();
         public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; } = new();
-        
+        public ObservableCollection<OrdersViewModel> OrdersVM { get; set; } = new();
+
         public AuthenticationViewModel AVM = new AuthenticationViewModel();
           
        
@@ -72,7 +73,14 @@ namespace ManHair.ViewModel
                 TreatmentViewModel treatmentViewModel = new(item);
                 TreatmentVM.Add(treatmentViewModel);
             }
-            
+
+            foreach (Orders item1 in orderRepo.GetOrders())
+            {
+                OrdersViewModel ordersViewModel = new(item1);
+                OrdersVM.Add(ordersViewModel);
+
+            }
+
         }
 
 

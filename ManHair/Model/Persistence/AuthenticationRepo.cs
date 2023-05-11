@@ -165,7 +165,55 @@ namespace ManHair.ViewModel.Repositories
             }
             return null;
         }
-            
+
+        public bool AdminAuthentication(Admin admin)
+        {
+            bool accepted = false;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand com = new SqlCommand("SELECT Username, Password FROM Admin ", connection))
+                    {
+                        using (SqlDataReader reader = com.ExecuteReader())
+
+                        {
+                            while (reader.Read())
+
+                            {
+                                if (admin.UserName == reader["Username"].ToString() && admin.Password == reader["Password"].ToString())
+
+                                {
+                                    accepted = true;
+
+                                }
+
+
+                            }
+
+
+
+                        }
+
+
+                    }
+
+                }
+            }
+            catch (SqlException e)
+            {
+
+                throw new Exception("Der opstod en fejl med sammenligning af password");
+
+            }
+
+
+            return accepted;
+
+
+        }
+
     }
 }
 

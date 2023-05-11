@@ -35,10 +35,9 @@ namespace ManHair.Model.Persistence
 
                         while (dataReader.Read())
                         {
-                            int CostumerID = dataReader.GetInt32(0);
-                            DateTime Date = dataReader.GetDateTime(1).Date;
+                            DateTime Date = dataReader.GetDateTime(0).Date;
                             DateOnly date = DateOnly.FromDateTime(Date);
-                            TimeSpan Time = (dataReader.GetTimeSpan(2));
+                            TimeSpan Time = (dataReader.GetTimeSpan(1));
                             TimeOnly time = TimeOnly.FromTimeSpan(Time);
                             Availability availability = new Availability(date, time);
                             AvailabilityList.Add(availability);

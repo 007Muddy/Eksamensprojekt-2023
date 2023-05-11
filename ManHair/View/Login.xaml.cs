@@ -21,11 +21,9 @@ namespace ManHair.View
     public partial class Login : Window
     {
         AuthenticationViewModel avm;
-
         public Login()
         {
             InitializeComponent();
-
             avm = new AuthenticationViewModel();
             DataContext = avm;
         }
@@ -37,15 +35,22 @@ namespace ManHair.View
                 if (avm.AccessGranted(txtEmail.Text, txtPassword.Password))
                 {
                     MessageBox.Show(avm.LoginMessage);
-                    CustomerHome customerWindow = new CustomerHome();  
+
+                    CustomerHome customerWindow = new CustomerHome();
                     customerWindow.Show();
                     this.Hide();
 
                 }
+                else if (avm.AdminAccess(txtEmail.Text, txtPassword.Password))
+                {
+                    MessageBox.Show(avm.LoginMessage);
+                    AdminControl control = new AdminControl();
+                    control.Show();
+                    this.Hide();
+                }
                 else
                 {
                     MessageBox.Show(avm.LoginMessage);
-                    avm.RemoveAuthentication();
                 }
             }
             else
@@ -54,11 +59,31 @@ namespace ManHair.View
             }
         }
 
-        private void Button_Forside(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
-            main.Show();
+            Close();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void ButtonBack(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Hide();
+        }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

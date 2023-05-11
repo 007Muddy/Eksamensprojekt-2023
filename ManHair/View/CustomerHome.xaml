@@ -8,10 +8,17 @@
         Title="CustomerHome" Height="450" Width="800">
     <Grid>
         <Button Content="Log ud" HorizontalAlignment="Left" Margin="722,394,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="53,57,418,57">
+        <ListView ItemsSource="{Binding OrdersVM}" Background="#FFC69797" Margin="0,0,400,25" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+
+                    <GridViewColumn Header=" OrderDate" DisplayMemberBinding="{Binding OrderDate}"/>
+
+                    <GridViewColumn Header=" Time" DisplayMemberBinding="{Binding Time}"/>
+
+                    <GridViewColumn Header=" Treatment" DisplayMemberBinding="{Binding Treatment}"/>
+
+                    <GridViewColumn Header=" Price" DisplayMemberBinding="{Binding Price, StringFormat='{}{0} kr'}"/>
                 </GridView>
             </ListView.View>
         </ListView>

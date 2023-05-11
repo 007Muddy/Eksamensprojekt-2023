@@ -109,5 +109,34 @@ namespace ManHair.ViewModel
             return Registersucces;
             
         }
+
+        public bool AdminAccess(string userName, String password)
+        {
+            bool access = false;
+            try
+            {
+                if (userName != null && password != null)
+                {
+                    Admin admin = new Admin(userName, password);
+
+                    if (authenticationRepo.AdminAuthentication(admin) == true)
+                    {
+                        access = true;
+                        LoginMessage = $"Login was successful: Welcome Admin";
+                    }
+                    else
+                    {
+                        LoginMessage = $"Login failed please try again";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return access;
+        }
     }
 }

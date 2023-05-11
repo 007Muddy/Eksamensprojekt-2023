@@ -9,17 +9,26 @@ namespace ManHair.ViewModel
 {
     public class OrdersViewModel
     {
-        public string Date { get; set; }
+        public int OrderID { get; set; }
+        public int CustomerID { get; set; }
+        public string OrderDate { get; set; }
         public string Time { get; set; }
-        public List<Treatment> Treatments { get; set; } = new List<Treatment>();
+
+        public string Treatment { get; set; }
         public double Price { get; set; }
 
-        public OrdersViewModel(Orders order)
+        public OrdersViewModel(Orders orders)
+
         {
-            Date = order.Date;
-            Time = order.Time;  
-            Price = order.Price;
-            this.Treatments = order.Treatments;
+            OrderID = orders.OrderID;
+            CustomerID = orders.CustomerID;
+            OrderDate = orders.OrderDate;
+            Time = orders.Time;
+            Treatment = orders.Treatment;
+            Price = orders.Price;
+
+
         }
+
     }
 }
