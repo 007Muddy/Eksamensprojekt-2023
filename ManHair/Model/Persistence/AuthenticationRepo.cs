@@ -16,7 +16,7 @@ namespace ManHair.ViewModel.Repositories
     {
         public string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
         public Customer customer { get; set; }
-        public Admin admin1 { get; set; }
+       
 
         public bool AuthenticateUser(Customer customer)
         {
@@ -101,7 +101,7 @@ namespace ManHair.ViewModel.Repositories
                             while (reader.Read())
 
                             {
-                                if (admin1.UserName == reader[admin.UserName].ToString() && admin.Password == reader[admin.Password].ToString())
+                                if (admin.UserName == reader["Username"].ToString() && admin.Password == reader["Password"].ToString())
 
                                 {
                                     accepted= true;

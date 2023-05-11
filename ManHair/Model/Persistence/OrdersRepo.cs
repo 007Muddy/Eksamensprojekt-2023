@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Windows.Markup;
 
 namespace ManHair.ViewModel.Repositories
 {
@@ -27,11 +28,14 @@ namespace ManHair.ViewModel.Repositories
                             string orderDate = dataReader.GetString(1);
                             string time = dataReader.GetString(2);
                             double price = dataReader.GetDouble(3);
-                            string bitwise = dataReader.GetString(4);
-                            List<string> treatment = GetTreatmentTypesFromDB((int)bitwise);
+                            int bitwise = int.Parse(dataReader.GetString(4));
+                            List<string> treatment = GetTreatmentTypesFromDB(bitwise);
                             int customerID = dataReader.GetInt32(5);
+                            // string.Join() in the RetrieveOrders() method is to concatenate the list of treatment type strings (treatment) we have used \ to look better on GUI.
+                            // This is done to create a more human-readable representation of the treatment types when displayed in the ListView.
+                            string treatmentString = string.Join(" \n ", treatment);
 
-                            Orders orders = new Orders(orderID, orderDate, time, price, treatment, customerID);
+                            Orders orders = new Orders(orderID, orderDate, time, price, treatmentString, customerID);
                             ordersList.Add(orders);
 
                         }
@@ -46,20 +50,21 @@ namespace ManHair.ViewModel.Repositories
             return ordersList;
         }
 
-        public List<Treatment.TreatmentType> GetTreatmentTypesFromDB(int bitwiseValue)
+        // this method takes an integer bitwise value as input and returns a
+        // list of strings representing the corresponding treatment types.
+        public List<string> GetTreatmentTypesFromDB(int bitwiseValue)
         {
-            List<Treatment.TreatmentType> treatmentTypes = new List<Treatment.TreatmentType>();
+            List<string> treatmentTypes = new List<string>();
           //int bitCast = int.Parse(bitwiseValue);
 
             foreach (Treatment.TreatmentType type in Enum.GetValues(typeof(Treatment.TreatmentType)))
             {
-                if ((bi & (int)type) == (int)type)
+                if ((bitwiseValue & (int)type) == (int)type)
                 {
-                    treatmentTypes.Add(type);   
+                    treatmentTypes.Add(type.ToString());   
                 }
             }
             return treatmentTypes;
-
         }
         public List<Orders> GetOrders()
         {

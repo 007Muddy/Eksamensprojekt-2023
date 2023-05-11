@@ -1,10 +1,12 @@
 ﻿using ManHair.Model;
+using ManHair.Model.Persistence;
 using ManHair.ViewModel.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ManHair.ViewModel
 {
@@ -14,7 +16,8 @@ namespace ManHair.ViewModel
         public string Password { get; set; }
         public string LoginMessage { get; set; }
         private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
-        private CostumerRepo customerRepo = new CostumerRepo(); 
+        private CostumerRepo customerRepo = new CostumerRepo();
+        public AdminRepo adminRepo { get; set; }
         public AuthenticationViewModel(Authentication auth)
         {
             this.User = auth.User;
@@ -38,11 +41,6 @@ namespace ManHair.ViewModel
 
                     if (authenticationRepo.AuthenticateUser(customer) == true)
                     {
-                        //costumerRepo.getCostumers().ForEach(customer =>{ 
-                        //    string name = customer.Name;
-                        //    LoginMessage = $"Login was successfull: Welcome {name}";
-                        //});
-
                         List<Customer> customers = customerRepo.getCostumers();
                         List<Customer> filteredCustomers = customers.Where(customer => customer.Email == email).ToList();
 
@@ -65,6 +63,35 @@ namespace ManHair.ViewModel
                 throw new Exception("Der opstod en fejl under login" + e);
             }
            
+            return access;
+        }
+
+        public bool AdminAccess(string userName, String password)
+        {
+            bool access= false;
+            try
+            {
+                if (userName != null && password != null)
+                {
+                    Admin admin = new Admin(userName, password);
+
+                    if (authenticationRepo.AdminAuthentication(admin)==true)
+                    {
+                        access= true;
+                        LoginMessage = $"Login was successful: Welcome Admin";
+                    }
+                    else
+                    {
+                        LoginMessage = $"Login failed please try again";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
             return access;
         }
 

@@ -41,6 +41,13 @@ namespace ManHair.View
                     this.Hide();
 
                 }
+                else if (avm.AdminAccess(txtEmail.Text, txtPassword.Password))
+                {
+                    MessageBox.Show(avm.LoginMessage);
+                    Admincontrol control =  new Admincontrol();
+                    control.Show();
+                    this.Hide();
+                }
                 else
                 {
                     MessageBox.Show(avm.LoginMessage);
