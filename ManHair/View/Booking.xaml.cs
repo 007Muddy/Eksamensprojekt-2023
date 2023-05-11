@@ -93,6 +93,12 @@ namespace ManHair.View
             mvm.BookOrder();
             MessageBox.Show("Din bookning er bestilt :)");
         }
-        
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerHome customerHome = new CustomerHome();
+            customerHome.Show();
+            this.Hide();
+        }
     }
 }

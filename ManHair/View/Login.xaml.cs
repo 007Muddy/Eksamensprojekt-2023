@@ -37,8 +37,8 @@ namespace ManHair.View
                 if (avm.AccessGranted(txtEmail.Text, txtPassword.Password))
                 {
                     MessageBox.Show(avm.LoginMessage);
-                    Booking bookingWindow = new Booking();  
-                    bookingWindow.Show();
+                    CustomerHome customerWindow = new CustomerHome();  
+                    customerWindow.Show();
                     this.Hide();
 
                 }

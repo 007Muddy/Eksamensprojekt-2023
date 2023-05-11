@@ -29,7 +29,7 @@ namespace ManHair.Model.Persistence
                     //Now Connection is open and we can run a Query on the database
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SELECT * FROM Availability", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT Date,Time FROM Availability", connection))
                     {
                         SqlDataReader dataReader = command.ExecuteReader();
 

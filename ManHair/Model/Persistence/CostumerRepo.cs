@@ -30,7 +30,7 @@ namespace ManHair.ViewModel.Repositories
                     //Now Connection is open and we can run a Query on the database
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("SELECT * FROM Customer", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT CustomerID, Name, PhoneNumber, Email, Password FROM Customer", connection))
                     {
                         SqlDataReader dataReader = command.ExecuteReader();
 

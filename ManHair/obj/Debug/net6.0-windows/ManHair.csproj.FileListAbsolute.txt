@@ -88,3 +88,5 @@ C:\Users\suner\OneDrive\Skrivebord\EksamenProjekt\Eksamensprojekt-2023\ManHair\o
 C:\Users\suner\OneDrive\Skrivebord\EksamenProjekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.pdb
 C:\Users\suner\OneDrive\Skrivebord\EksamenProjekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.genruntimeconfig.cache
 C:\Users\suner\OneDrive\Skrivebord\EksamenProjekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ref\ManHair.dll
+C:\Users\suner\OneDrive\Skrivebord\EksamenProjekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\CustomerHome.g.cs
+C:\Users\suner\OneDrive\Skrivebord\EksamenProjekt\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\CustomerHome.baml
