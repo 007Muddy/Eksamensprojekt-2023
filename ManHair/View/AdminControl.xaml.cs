@@ -20,13 +20,13 @@ namespace ManHair.View
     /// </summary>
     public partial class AdminControl : Window
     {
-        public MainViewModel mvm { get; set; }
+        public AdminControlViewModel ACM { get; set; }
 
         public AdminControl()
         {
             InitializeComponent();
-            mvm = new MainViewModel();
-            DataContext = mvm;
+            ACM = new AdminControlViewModel();
+            DataContext = ACM;
         }
 
 

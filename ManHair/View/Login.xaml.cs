@@ -20,42 +20,51 @@ namespace ManHair.View
     /// </summary>
     public partial class Login : Window
     {
-        AuthenticationViewModel avm;
+        LoginViewModel lvm;
+        MainWindow mv;
         public Login()
         {
+            InitializeComponent();           
+            lvm = new LoginViewModel();
+            DataContext = lvm;
+        }
+        public Login(MainWindow main)
+        {
             InitializeComponent();
-            avm = new AuthenticationViewModel();
-            DataContext = avm;
+            mv = main;
+            mv.Hide();
+            lvm = new LoginViewModel();
+            DataContext = lvm;
         }
 
         private void ButtonLogin(object sender, RoutedEventArgs e)
         {
             if (txtEmail.Text != null && txtPassword.Password != null)
             {
-                if (avm.AccessGranted(txtEmail.Text, txtPassword.Password))
+                if (lvm.AccessGranted(txtEmail.Text, txtPassword.Password))
                 {
-                    MessageBox.Show(avm.LoginMessage);
+                    MessageBox.Show(lvm.LoginMessage);
 
                     CustomerHome customerWindow = new CustomerHome();
                     customerWindow.Show();
-                    this.Hide();
+                    this.Close();
 
                 }
-                else if (avm.AdminAccess(txtEmail.Text, txtPassword.Password))
+                else if (lvm.AdminAccess(txtEmail.Text, txtPassword.Password))
                 {
-                    MessageBox.Show(avm.LoginMessage);
+                    MessageBox.Show(lvm.LoginMessage);
                     AdminControl control = new AdminControl();
                     control.Show();
-                    this.Hide();
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show(avm.LoginMessage);
+                    MessageBox.Show(lvm.LoginMessage);
                 }
             }
             else
             {
-                MessageBox.Show(avm.LoginMessage);
+                MessageBox.Show(lvm.LoginMessage);
             }
         }
 
@@ -76,9 +85,11 @@ namespace ManHair.View
 
         private void ButtonBack(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Hide();
+            //MainWindow mainWindow = new MainWindow();
+            //mainWindow.Show();
+            mv.Show();
+            this.Close();
+            
         }
 
         private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)

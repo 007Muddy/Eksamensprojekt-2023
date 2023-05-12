@@ -20,13 +20,13 @@ namespace ManHair.View
    
     public partial class Register : Window
     {
-        public AuthenticationViewModel avm { get; set; }
+        public RegisterViewModel rvm { get; set; }
        
         public Register()
         {
             InitializeComponent();
-            avm = new AuthenticationViewModel();
-            DataContext = avm;
+            rvm = new RegisterViewModel();
+            DataContext = rvm;
         }
 
         private void RegisterButton(object sender, RoutedEventArgs e)
@@ -36,11 +36,11 @@ namespace ManHair.View
             {
                 if (txtAdgangskode.Password == txtBekræftAdgangskode.Password)
                 {
-                    if (avm.CreateNewCustomer(txtName.Text,Int32.Parse(txtTlf.Text),txtEmail.Text,txtAdgangskode.Password))
+                    if (rvm.CreateNewCustomer(txtName.Text,Int32.Parse(txtTlf.Text),txtEmail.Text,txtAdgangskode.Password))
                     {
                         MessageBox.Show("You have successfully registered");
                         main.Show();
-                        this.Hide();
+                        this.Close();
                     }
                 }
             }

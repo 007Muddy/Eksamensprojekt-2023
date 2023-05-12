@@ -20,12 +20,12 @@ namespace ManHair.View
     /// </summary>
     public partial class CustomerHome : Window
     {
-        MainViewModel mvm;
+        CustomerHomeViewModel CHM;
         public CustomerHome()
         {
             InitializeComponent();
-            mvm = new MainViewModel();
-            DataContext = mvm;
+            CHM = new CustomerHomeViewModel();
+            DataContext = CHM;
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -37,15 +37,15 @@ namespace ManHair.View
         {
             Booking booking = new Booking();
             booking.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            mvm.AVM.RemoveAuthentication();
+            CHM.RemoveAuthentication();
             Login login = new Login();
             login.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

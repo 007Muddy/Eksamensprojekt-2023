@@ -11,7 +11,6 @@ namespace ManHair.ViewModel
 {
     public class AvailabilityViewModel
     {
-        private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
         public DateOnly Date { get; set; }
         public TimeOnly Time { get; set; }
 

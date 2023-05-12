@@ -165,7 +165,7 @@ namespace ManHair.ViewModel.Repositories
             }
             return null;
         }
-
+ 
         public bool AdminAuthentication(Admin admin)
         {
             bool accepted = false;

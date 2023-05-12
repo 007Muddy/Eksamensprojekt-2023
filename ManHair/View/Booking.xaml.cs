@@ -21,16 +21,17 @@ namespace ManHair.View
     /// Interaction logic for Booking.xaml
     /// </summary>
     public partial class Booking : Window
-        
     {
         public double totalPrice;
-        MainViewModel mvm;
+        BookingViewModel bvm;
         public Booking()
         {
             InitializeComponent();
             AvailableDates.BlackoutDates.AddDatesInPast();
-            mvm = new MainViewModel();
-            DataContext = mvm;
+            bvm = new BookingViewModel();
+            //bvm.AvailableVM = null;
+
+            DataContext = bvm;
 
         }
 
@@ -40,7 +41,7 @@ namespace ManHair.View
             {
                 e.Cancel = true;
             }
-            mvm.AVM.RemoveAuthentication();
+            bvm.RemoveAuthentication();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -48,19 +49,19 @@ namespace ManHair.View
 
 
             totalPrice = 0;
-            int currentTypes = (int)mvm.SelectedTypes;
+            int currentTypes = (int)bvm.SelectedTypes;
             foreach (TreatmentViewModel treatment in Type.SelectedItems)
             {
                 totalPrice += treatment.Price;
-                mvm.SelectedTypes |= treatment.Type;
+                bvm.SelectedTypes |= treatment.Type;
                 
             }
-            mvm.TotalPrice = totalPrice;
+            bvm.TotalPrice = totalPrice;
             labelTotalPrice.Content = $"Total Pris: {totalPrice:C}";
 
             foreach (TreatmentViewModel treatment in e.RemovedItems.Cast<TreatmentViewModel>())
             {
-                mvm.SelectedTypes &= ~treatment.Type;
+                bvm.SelectedTypes &= ~treatment.Type;
             }
             
 
@@ -82,11 +83,11 @@ namespace ManHair.View
                 DragMove();
         }
 
-        private void ListView_AvialableTime(object sender, SelectionChangedEventArgs e)
+        private void ListView_AvailableTime(object sender, SelectionChangedEventArgs e)
         {
             foreach (AvailabilityViewModel availableTime in AvailableTimeSlots.SelectedItems)
             {
-                mvm.SelectedTime = availableTime.Time.ToString("HH:mm:ss");
+                bvm.SelectedTime = availableTime.Time.ToString("HH:mm:ss");
 
             }
         }
@@ -99,14 +100,14 @@ namespace ManHair.View
         {
             if (e.AddedItems.Count > 0)
             {
-                mvm.SelectedDate = (DateTime)e.AddedItems[0];
+                bvm.SelectedDate = (DateTime)e.AddedItems[0];
             }
-            mvm.GetAvailability();
+            bvm.GetAvailability();
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {   
-            mvm.BookOrder();
+            bvm.BookOrder();
             MessageBox.Show("Din bookning er bestilt :)");
         }
 
@@ -114,7 +115,7 @@ namespace ManHair.View
         {
             CustomerHome customerHome = new CustomerHome();
             customerHome.Show();
-            this.Hide();
+            this.Close();
         }
 
         

@@ -29,9 +29,10 @@ namespace ManHair
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
-            Login login= new Login();
+            Login login= new Login(this);
             login.Show();
-            this.Hide();
+            
+  
 
 
         }
