@@ -21,7 +21,7 @@ namespace ManHair
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,20 +29,34 @@ namespace ManHair
 
         private void LoginButton(object sender, RoutedEventArgs e)
         {
-            Login login= new Login(this);
+            Login login = new Login();
             login.Show();
-            
-  
+            this.Hide();
 
 
         }
 
         private void RegisterButton(object sender, RoutedEventArgs e)
         {
-            Register register= new Register();
+            Register register = new Register();
             register.Show();
-            this.Hide();    
+            this.Hide();
 
+        }
+
+        private void CloseButton_Click1(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
         }
     }
 }

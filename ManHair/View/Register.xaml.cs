@@ -17,30 +17,30 @@ namespace ManHair.View
 {
     /// <summary>
     /// Interaction logic for RegisterButton.xaml
-   
+
     public partial class Register : Window
     {
-        public RegisterViewModel rvm { get; set; }
-       
+        RegisterViewModel avm { get; set; }
+
         public Register()
         {
             InitializeComponent();
-            rvm = new RegisterViewModel();
-            DataContext = rvm;
+            avm = new RegisterViewModel();
+            DataContext = avm;
         }
 
         private void RegisterButton(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
-            if (txtName != null && txtTlf != null && txtEmail != null && txtAdgangskode != null && txtBekræftAdgangskode != null)
+            if (txtEmail != null && txtTlf != null && txtEmail != null && txtAdgangskode != null && txtBekræftAdgangskode != null)
             {
                 if (txtAdgangskode.Password == txtBekræftAdgangskode.Password)
                 {
-                    if (rvm.CreateNewCustomer(txtName.Text,Int32.Parse(txtTlf.Text),txtEmail.Text,txtAdgangskode.Password))
+                    if (avm.CreateNewCustomer(txtEmail.Text, Int32.Parse(txtTlf.Text), txtEmail.Text, txtAdgangskode.Password))
                     {
                         MessageBox.Show("You have successfully registered");
                         main.Show();
-                        this.Close();
+                        this.Hide();
                     }
                 }
             }
@@ -48,6 +48,30 @@ namespace ManHair.View
             {
                 MessageBox.Show("Please fill all the fields");
             }
+        }
+
+
+
+        private void close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }

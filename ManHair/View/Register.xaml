@@ -5,23 +5,148 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManHair.View"
         mc:Ignorable="d"
-        Title="Register" Height="450" Width="800">
+        Title="Register" Height="450" Width="800" WindowStyle="None"
+             MouseDown="Window_MouseDown">
     <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Height="0" Margin="1010,149,0,0" VerticalAlignment="Top" Width="315"/>
-        <Label Content="Navn" HorizontalAlignment="Left" Margin="57,94,0,0" VerticalAlignment="Top" Height="30" Width="73"/>
-        <Label Content="Tlf. nummer" HorizontalAlignment="Left" Margin="56,136,0,0" VerticalAlignment="Top"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="57,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.605,1.812"/>
-        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="57,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,0.194"/>
-        <Label Content="Bekræft adgangskode" HorizontalAlignment="Left" Margin="57,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.233"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="250,106,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="txtTlf" HorizontalAlignment="Left" Margin="250,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="250,190,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="txtAdgangskode" HorizontalAlignment="Left" Margin="250,225,0,0" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="txtBekræftAdgangskode" HorizontalAlignment="Left" Margin="250,261,0,0" VerticalAlignment="Top" Width="120"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/View/Images/hair.jpg"/>
+        </Grid.Background>
+        <Label Content="Navn" HorizontalAlignment="Left"
+               Margin="281,79,0,0" VerticalAlignment="Top" 
+               Height="30" Width="73" FontWeight="Bold" 
+               Foreground="White" Background="{x:Null}"/>
+        <Label Content="Tlf. nummer"
+               HorizontalAlignment="Left" 
+               Margin="263,126,0,0"
+               VerticalAlignment="Top" 
+               FontWeight="Bold" 
+               Foreground="White"/>
+        <Label Content="Email" 
+               HorizontalAlignment="Left" 
+               Margin="287,166,0,0" 
+               VerticalAlignment="Top" 
+               FontWeight="Bold"
+               Foreground="White"/>
+        <Label Content="Adgangskode" 
+               HorizontalAlignment="Left"
+               Margin="265,201,0,0"
+               VerticalAlignment="Top" 
+               FontWeight="Bold" 
+               Foreground="White"/>
+        <Label Content="Bekræft adgangskode"
+               HorizontalAlignment="Left"
+               Margin="243,236,0,0" 
+               VerticalAlignment="Top" 
+               FontWeight="Bold" Foreground="White"/>
+        <TextBox x:Name="txtTlf"
+         HorizontalAlignment="Left"
+         VerticalAlignment="Top"
+         Margin="248,152,0,0"
+         Width="120"
+         Height="19"
+         TextWrapping="Wrap"
+         Background="#FF686868"
+         Foreground="White"
+         BorderThickness="1"
+         BorderBrush="Gray"
+         Padding="5"/>
 
-     
-        <Button Content="Registrere" HorizontalAlignment="Left" Margin="281,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.002" Click="RegisterButton"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="750,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.505,2.707"/>
-       
+        <TextBox x:Name="txtEmail"
+                 HorizontalAlignment="Left"
+                 Margin="250,190,0,0"
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
+                 Width="120" 
+                 Background="#FF686868"/>
+        <PasswordBox x:Name="txtAdgangskode" 
+                     HorizontalAlignment="Left"
+                     Margin="250,225,0,0"
+                     VerticalAlignment="Top" 
+                     Width="120"
+                     Background="#FF686868"/>
+        <PasswordBox x:Name="txtBekræftAdgangskode" 
+                     HorizontalAlignment="Left" Margin="250,261,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="120"
+                     Background="#FF686868"/>
+
+
+
+
+
+        <Button Content="Register" HorizontalAlignment="Left" Margin="318,300,0,0" VerticalAlignment="Top" Click="RegisterButton" Background="#FF3D7AB5" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold"/>
+        <Button Content="Already customer?" HorizontalAlignment="Left" Margin="188,297,0,0" VerticalAlignment="Top" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold" Click="Button_Click_1" RenderTransformOrigin="0.5,0.5" Height="23" Width="109" Background="{x:Null}">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.405"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+            <Button x:Name="MinimizeButton" Content="_" Height="24" Width="30" FontSize="16" Foreground="White" BorderBrush="Transparent" Click="MinimizeButton_Click" Background="#FFF6A900">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFC57615" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5"/>
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="CloseButton_Click" Content="X" Height="24" Width="30" Click="close_Click" Background="Red">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFE02323" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5"/>
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Welcome to Manhair" VerticalAlignment="Top" Height="16" Width="113" Margin="250,0,0,0">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFF1F1F1" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+
     </Grid>
 </Window>

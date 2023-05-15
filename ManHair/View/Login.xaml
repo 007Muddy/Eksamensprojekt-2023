@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800" WindowStyle="None"
          MouseDown="Window_MouseDown">
-    
+
     <Grid RenderTransformOrigin="0.464,0.433">
         <Grid.Background>
             <ImageBrush ImageSource="/View/Images/hair2.jpg"/>
@@ -75,21 +75,51 @@
 
         <!-- Add close and minimize buttons -->
         <Grid Margin="0,0,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="90">
-            <Button x:Name="btnMinimize" Content="-" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,30,0" Width="25" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnMinimize_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF09BE35" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
+            <Button x:Name="btnMinimize" Content="-" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="33,0,0,0" Width="27" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnMinimize_Click" Background="#FFC7B121">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FF09BE35" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
             </Button>
-            <Button x:Name="btnClose" Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnClose_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FFFFA11F" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
+            <Button x:Name="btnClose" Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnClose_Click" Background="Red">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFFFA11F" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
             </Button>
         </Grid>
     </Grid>
