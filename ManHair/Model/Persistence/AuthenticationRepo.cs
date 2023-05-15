@@ -95,8 +95,7 @@ namespace ManHair.ViewModel.Repositories
                 {
                     sqlConnection.Open();
 
-                    using (SqlCommand command = new SqlCommand("INSERT INTO Authentication (Email, Password)"
-                        + " VALUES(@email, @password)", sqlConnection))
+                    using (SqlCommand command = new SqlCommand("INSERT INTO Authentication (Email, Password) VALUES(@email, @password)", sqlConnection))
                     {
                         
                         command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;

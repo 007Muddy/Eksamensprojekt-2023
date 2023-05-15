@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AdminControl" Height="450" Width="800">
     <Grid>
-        <ListView ItemsSource="{Binding OrdersVM}" Background="#FFC69797" Margin="0,0,340,25" >
+        <ListView ItemsSource="{Binding OrdersVM}" SelectedItem="{Binding SelectedOrder}" Background="#FFC69797" Margin="0,0,340,25" >
             <ListView.View>
                 <GridView>
 
@@ -15,7 +15,7 @@
 
                     <GridViewColumn Header=" CustomerID" DisplayMemberBinding="{Binding CustomerID}"/>
 
-                    <GridViewColumn Header=" OrderDate" DisplayMemberBinding="{Binding OrderDate}"/>
+                    <GridViewColumn Header=" Date" DisplayMemberBinding="{Binding Date}"/>
 
                     <GridViewColumn Header=" Time" DisplayMemberBinding="{Binding Time}"/>
 
@@ -25,6 +25,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Log ud" HorizontalAlignment="Left" Margin="722,394,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
+        <Button Content="Afbestil" HorizontalAlignment="Left" Margin="512,243,0,0" VerticalAlignment="Top" Click="Cancel_Click"/>
+
 
     </Grid>
 </Window>

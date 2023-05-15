@@ -11,7 +11,7 @@ namespace ManHair.ViewModel
     {
         public int OrderID { get; set; }
         public int CustomerID { get; set; }
-        public string OrderDate { get; set; }
+        public string Date { get; set; }
         public string Time { get; set; }
 
         public string Treatment { get; set; }
@@ -22,7 +22,7 @@ namespace ManHair.ViewModel
         {
             OrderID = orders.OrderID;
             CustomerID = orders.CustomerID;
-            OrderDate = orders.OrderDate;
+            Date = orders.Date;
             Time = orders.Time;
             Treatment = orders.Treatment;
             Price = orders.Price;

@@ -61,13 +61,15 @@ namespace ManHair.Model.Persistence
         {
            List<Availability> filteredAvailibilty = new List<Availability>();
 
-            //date = new DateOnly(2023, 5, 2);
-            filteredAvailibilty.Clear();
-
+            if (filteredAvailibilty.Count < 0)
+            {
+                filteredAvailibilty.Clear();
+            }
+            
             List<Availability> availabilities = loadAllAvailabilities();
             filteredAvailibilty = availabilities.Where(availability => availability.Date == date)
-                .OrderBy(availability => availability.Time).ToList();
-
+                    .OrderBy(availability => availability.Time).ToList();
+            
             return filteredAvailibilty;
 
           
@@ -77,17 +79,19 @@ namespace ManHair.Model.Persistence
 
             try
             {
-                
+
 
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
                     sqlConnection.Open();
 
+                    DateTime dateTime = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
+
                     using (SqlCommand command = new SqlCommand("INSERT INTO Availability (Date, Time)"
                         + " VALUES(@date, @time)", sqlConnection))
                     {
-                        command.Parameters.Add("@date", SqlDbType.Date).Value = date;
-                        command.Parameters.Add("@time", SqlDbType.Time).Value = time;
+                        command.Parameters.Add("@date", SqlDbType.Date).Value = dateTime.Date;
+                        command.Parameters.Add("@time", SqlDbType.Time).Value = dateTime.TimeOfDay;
                         command.ExecuteNonQuery();
 
                     }
@@ -97,6 +101,30 @@ namespace ManHair.Model.Persistence
             {
 
                 throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
+            }
+        }
+        public void Remove(DateOnly date, TimeOnly time)
+        {
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+
+                    DateTime dateTime = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
+
+                    using (SqlCommand command = new SqlCommand("DELETE FROM Availability WHERE Date = @date AND Time = @time", sqlConnection))
+                    {
+                        command.Parameters.Add("@date", SqlDbType.Date).Value = dateTime.Date;
+                        command.Parameters.Add("@time", SqlDbType.Time).Value = dateTime.TimeOfDay;
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+
+                throw new Exception("Something went wrong when trying to remove a use to the DB" + e);
             }
         }
     }

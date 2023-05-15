@@ -12,7 +12,7 @@ namespace ManHair.Model.Persistence
     {
         private string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
         private List<Admin> adminList { get; set; } = new();
-        public List<Admin> RetrievAdmins()
+        public List<Admin> RetrieveAdmins()
         {
             try
             {

@@ -109,6 +109,9 @@ namespace ManHair.View
         {   
             bvm.BookOrder();
             MessageBox.Show("Din bookning er bestilt :)");
+            CustomerHome customerHome = new CustomerHome();
+            customerHome.Show();
+            this.Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

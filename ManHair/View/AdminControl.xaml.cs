@@ -20,19 +20,33 @@ namespace ManHair.View
     /// </summary>
     public partial class AdminControl : Window
     {
-        public AdminControlViewModel ACM { get; set; }
+        public AdminControlViewModel acvm { get; set; }
 
         public AdminControl()
         {
             InitializeComponent();
-            ACM = new AdminControlViewModel();
-            DataContext = ACM;
+            acvm = new AdminControlViewModel();
+            DataContext = acvm;
         }
 
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            acvm.RemoveAuthentication();
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            acvm.CancelOrder();
+            acvm.UpdateOrdersVM();
         }
     }
 }

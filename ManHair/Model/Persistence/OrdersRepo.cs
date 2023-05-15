@@ -21,6 +21,10 @@ namespace ManHair.ViewModel.Repositories
         {
             try
             {
+                if (ordersList.Count > 0)
+                {
+                    ordersList.Clear();
+                }
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
                 {
                     sqlCon.Open();
@@ -70,14 +74,21 @@ namespace ManHair.ViewModel.Repositories
             return treatmentTypes;
         }
 
-        public List<Orders> GetOrders()
+        public List<Orders> GetCustomerOrders(int ID)
         {
-
-            if (ordersList.Count == 0)
+            List<Orders> filteredOrders = new List<Orders>();
+            if (filteredOrders.Count < 0)
             {
-                RetrieveOrders();
+                filteredOrders.Clear();
             }
-            return ordersList;
+            else
+            {
+                List<Orders> orders = RetrieveOrders();
+                filteredOrders = orders.Where(orders => orders.CustomerID == ID)
+                        .OrderBy(order => order.Date)
+                       .ThenBy(order => order.Time).ToList();
+            }
+            return filteredOrders;
         }
 
         public void Add(int ID, string date, string time, double price, int treatment)
@@ -108,6 +119,27 @@ namespace ManHair.ViewModel.Repositories
             {
 
                     throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
+            }
+        }
+        public void Remove(int orderID)
+        {
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+
+                    using (SqlCommand command = new SqlCommand("DELETE FROM Orders" + " WHERE OrdersID = @ordersID", sqlConnection))
+                    {
+                        command.Parameters.Add("@ordersID", SqlDbType.Int).Value = orderID;
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+
+                throw new Exception("Something went wrong when trying to remove a use to the DB" + e);
             }
         }
     }

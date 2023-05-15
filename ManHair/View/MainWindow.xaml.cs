@@ -44,7 +44,7 @@ namespace ManHair
 
         }
 
-        private void CloseButton_Click1(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

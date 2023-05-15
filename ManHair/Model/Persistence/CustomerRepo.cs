@@ -18,7 +18,7 @@ namespace ManHair.ViewModel.Repositories
         //Reference to the connectionStrings made in App.Config and passing its name in the parameter
         private string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
 
-        public AuthenticationRepo authenticationRepo { get; set; }
+        public AuthenticationRepo authenticationRepo = new AuthenticationRepo();
 
         // Load all Costumers from database and polulating into CostumerList
 

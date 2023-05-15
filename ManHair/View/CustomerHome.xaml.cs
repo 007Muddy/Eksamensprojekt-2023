@@ -20,12 +20,12 @@ namespace ManHair.View
     /// </summary>
     public partial class CustomerHome : Window
     {
-        CustomerHomeViewModel CHM;
+        CustomerHomeViewModel chvm;
         public CustomerHome()
         {
             InitializeComponent();
-            CHM = new CustomerHomeViewModel();
-            DataContext = CHM;
+            chvm = new CustomerHomeViewModel();
+            DataContext = chvm;
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace ManHair.View
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            CHM.RemoveAuthentication();
+            chvm.RemoveAuthentication();
             Login login = new Login();
             login.Show();
             this.Close();
@@ -50,7 +50,8 @@ namespace ManHair.View
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            chvm.CancelOrder();
+            chvm.UpdateOrdersVM();
         }
     }
 }

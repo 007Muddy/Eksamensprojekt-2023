@@ -2,14 +2,8 @@
 using ManHair.Model.Persistence;
 using ManHair.ViewModel.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static ManHair.Model.Treatment;
 
 namespace ManHair.ViewModel
@@ -18,7 +12,7 @@ namespace ManHair.ViewModel
     {
         private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
         private TreatmentRepo treatmentRepo = new TreatmentRepo();
-        private OrdersRepo orderRepo = new OrdersRepo();
+        private OrdersRepo ordersRepo = new OrdersRepo();
         private CustomerRepo customerRepo = new CustomerRepo();
         private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
         public ObservableCollection<AvailabilityViewModel> AvailableVM { get; set; } = new();
@@ -74,7 +68,8 @@ namespace ManHair.ViewModel
         }
         public void BookOrder()
         {
-            orderRepo.Add(customerRepo.getID(), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
+            ordersRepo.Add(customerRepo.getID(), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
+            availabilityRepo.Remove(SelectedDateOnly, TimeOnly.Parse(SelectedTime));
         }
 
         public void GetAvailability()
