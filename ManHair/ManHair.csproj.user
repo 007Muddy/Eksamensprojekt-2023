@@ -19,7 +19,7 @@
     <Compile Update="View\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\RedirectButton_Click.cs">
+    <Compile Update="View\RegisterWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

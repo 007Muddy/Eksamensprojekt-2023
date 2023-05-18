@@ -13,11 +13,35 @@
             <ImageBrush ImageSource="/View/Images/hair2.jpg"/>
         </Grid.Background>
 
-        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="302,213,0,0"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="332,225,0,0" Foreground="#FFFBFBFB">
+            <PasswordBox.Background>
+                <ImageBrush/>
+            </PasswordBox.Background>
+        </PasswordBox>
 
-        <Label Content="Email" HorizontalAlignment="Left" Margin="237,177,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="237,209,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Login1" Content="Login" HorizontalAlignment="Center" Margin="0,268,0,0" VerticalAlignment="Top" Click="ButtonLogin" Height="48" Width="76">
+        <Label Content="Email" HorizontalAlignment="Left" Margin="233,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.548,0.218">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="233,217,0,0" VerticalAlignment="Top">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Button x:Name="Login1" Content="Login" HorizontalAlignment="Left" Margin="392,321,0,0" VerticalAlignment="Top" Click="ButtonLogin" Height="48" Width="76">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
@@ -44,7 +68,13 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="256,268,0,0" VerticalAlignment="Top" Click="ButtonBack" Height="48" Width="76">
+        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="256,321,0,0" VerticalAlignment="Top" Click="ButtonBack" Height="48" Width="76">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
@@ -71,11 +101,15 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBox  x:Name="txtEmail" HorizontalAlignment="Left" Margin="305,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="txtEmail" HorizontalAlignment="Left" Margin="332,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFFBFBFB" CaretBrush="White">
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
 
         <!-- Add close and minimize buttons -->
         <Grid Margin="0,0,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="90">
-            <Button x:Name="btnMinimize" Content="-" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="33,0,0,0" Width="27" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnMinimize_Click" Background="#FFC7B121">
+            <Button x:Name="btnMinimize" Content="-" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="33,0,0,0" Width="27" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnMinimize_Click" Background="#FFF6A900">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background">

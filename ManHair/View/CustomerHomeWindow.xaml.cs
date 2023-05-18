@@ -39,6 +39,10 @@ namespace ManHair.View
             this.Hide();
         }
 
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             chvm.RemoveAuthentication();
@@ -51,6 +55,21 @@ namespace ManHair.View
         {
             chvm.CancelOrder();
             chvm.UpdateOrdersVM();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

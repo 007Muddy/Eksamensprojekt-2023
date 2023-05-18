@@ -6,25 +6,216 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManHair.View"
         mc:Ignorable="d"
-        Title="CustomerHome" Height="450" Width="800">
+        Title="CustomerHome" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent"  
+        MouseDown="Window_MouseDown">
+
     <Grid>
-        <Button Content="Log ud" HorizontalAlignment="Left" Margin="722,394,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
-        <ListView ItemsSource="{Binding OrdersVM}" SelectedItem="{Binding SelectedOrder}" Background="#FFC69797" Margin="0,0,400,25" >
-            <ListView.View>
-                <GridView>
+        <Grid.Background>
+            <ImageBrush ImageSource="/View/Images/hair2.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-                    <GridViewColumn Header=" Date" DisplayMemberBinding="{Binding Date}"/>
+        <!-- Custom title bar -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+            <Button x:Name="MinimizeButton" Content="_" Height="24" Width="30" FontSize="16" Foreground="White" BorderBrush="Transparent" Click="MinimizeButton_Click" Background="#FFF6A900">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFC57615" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5"/>
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="CloseButton" Content="X" Height="24" Width="30" Click="CloseButton_Click" Background="Red">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFE02323" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5"/>
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
 
-                    <GridViewColumn Header=" Time" DisplayMemberBinding="{Binding Time}"/>
+        <Grid Grid.Row="1">
+            <ListView ItemsSource="{Binding OrdersVM}" SelectedItem="{Binding SelectedOrder}" Background="White" Margin="0,15,400,10" Opacity="0.9" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header=" Date" DisplayMemberBinding="{Binding Date}"/>
+                        <GridViewColumn Header=" Time" DisplayMemberBinding="{Binding Time}"/>
+                        <GridViewColumn Header=" Treatment" DisplayMemberBinding="{Binding Treatment}"/>
+                        <GridViewColumn Header=" Price" DisplayMemberBinding="{Binding Price, StringFormat='{}{0} kr'}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="Logud" Content="Rediger" HorizontalAlignment="Left" Margin="714,267,0,0" VerticalAlignment="Top" Click="Edit_Click" Height="48" Width="76">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
+                            <Grid>
+                                <Rectangle Fill="#C8C8C8" RadiusX="10" RadiusY="10" Opacity="0.6" Margin="2,2,0,0"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#008CBA" Offset="0"/>
+                                            <GradientStop Color="#004E98" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#004E98"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
-                    <GridViewColumn Header=" Treatment" DisplayMemberBinding="{Binding Treatment}"/>
+            <Button x:Name="Rediger" Content="Logud" HorizontalAlignment="Left" Margin="714,358,0,0" VerticalAlignment="Top" Click="Logout_Click" Height="48" Width="76">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
+                            <Grid>
+                                <Rectangle Fill="#C8C8C8" RadiusX="10" RadiusY="10" Opacity="0.6" Margin="2,2,0,0"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#008CBA" Offset="0"/>
+                                            <GradientStop Color="#004E98" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#004E98"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
-                    <GridViewColumn Header=" Price" DisplayMemberBinding="{Binding Price, StringFormat='{}{0} kr'}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button Content="Afbestil" HorizontalAlignment="Left" Margin="583,217,0,0" VerticalAlignment="Top" Click="Cancel_Click"/>
-        <Button Content="Bestil" HorizontalAlignment="Left" Margin="479,217,0,0" VerticalAlignment="Top" Click="Order_Click"/>
+            <Button x:Name="Afbestil" Content="Afbestil" HorizontalAlignment="Left" Margin="714,179,0,0" VerticalAlignment="Top" Click="Cancel_Click" Height="48" Width="76">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
+                            <Grid>
+                                <Rectangle Fill="#C8C8C8" RadiusX="10" RadiusY="10" Opacity="0.6" Margin="2,2,0,0"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#008CBA" Offset="0"/>
+                                            <GradientStop Color="#004E98" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#004E98"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
+            <Button x:Name="Bestil" Content="Bestil" HorizontalAlignment="Left" Margin="714,99,0,0" VerticalAlignment="Top" Click="Order_Click" Height="48" Width="76" Foreground="Black" BorderBrush="#FF707070">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
+                            <Grid>
+                                <Rectangle Fill="#C8C8C8" RadiusX="10" RadiusY="10" Opacity="0.6" Margin="2,2,0,0"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#008CBA" Offset="0"/>
+                                            <GradientStop Color="#004E98" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#004E98"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

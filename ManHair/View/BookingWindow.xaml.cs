@@ -60,12 +60,12 @@ namespace ManHair.View
             }
         }
 
-        private void Minimize_Click(object sender, RoutedEventArgs e)
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             bvm.RemoveAuthentication();
             Close();
