@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="View\Images\hair.jpg" />
     <None Remove="View\Images\hair2.jpg" />
+    <None Remove="View\Images\haircut3.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +18,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="View\Images\hair2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\haircut3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
