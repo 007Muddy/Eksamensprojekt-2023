@@ -74,7 +74,7 @@ namespace ManHair.ViewModel.Repositories
             return treatmentTypes;
         }
 
-        public List<Orders> GetCustomerOrders(int ID)
+        public List<Orders> GetCustomerOrders(int id)
         {
             List<Orders> filteredOrders = new List<Orders>();
             if (filteredOrders.Count < 0)
@@ -84,14 +84,14 @@ namespace ManHair.ViewModel.Repositories
             else
             {
                 List<Orders> orders = RetrieveOrders();
-                filteredOrders = orders.Where(orders => orders.CustomerID == ID)
+                filteredOrders = orders.Where(orders => orders.CustomerID == id)
                         .OrderBy(order => order.Date)
                        .ThenBy(order => order.Time).ToList();
             }
             return filteredOrders;
         }
 
-        public void Add(int ID, string date, string time, double price, int treatment)
+        public void Add(int id, string date, string time, double price, int treatment)
         {
 
             try
@@ -109,7 +109,7 @@ namespace ManHair.ViewModel.Repositories
                         command.Parameters.Add("@time", SqlDbType.NVarChar).Value = time;
                         command.Parameters.Add("@price", SqlDbType.Float).Value = price;
                         command.Parameters.Add("@treatment", SqlDbType.Int).Value = treatment;
-                        command.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+                        command.Parameters.Add("@ID", SqlDbType.Int).Value = id;
                         command.ExecuteNonQuery();
 
                     }

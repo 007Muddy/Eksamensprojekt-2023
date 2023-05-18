@@ -7,39 +7,39 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="View\AdminControl.xaml.cs">
+    <Compile Update="View\AdminControlWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\Booking.xaml.cs">
+    <Compile Update="View\BookingWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CustomerHome.xaml.cs">
+    <Compile Update="View\CustomerHomeWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\Login.xaml.cs">
+    <Compile Update="View\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\Register.xaml.cs">
+    <Compile Update="View\RedirectButton_Click.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="View\AdminControl.xaml">
+    <Page Update="View\AdminControlWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\Booking.xaml">
+    <Page Update="View\BookingWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\CustomerHome.xaml">
+    <Page Update="View\CustomerHomeWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\Login.xaml">
+    <Page Update="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\Register.xaml">
+    <Page Update="View\RegisterWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

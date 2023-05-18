@@ -18,7 +18,7 @@ namespace ManHair.ViewModel.Repositories
         //Reference to the connectionStrings made in App.Config and passing its name in the parameter
         private string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
 
-        public AuthenticationRepo authenticationRepo = new AuthenticationRepo();
+        private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
 
         // Load all Costumers from database and polulating into CostumerList
 
@@ -69,11 +69,11 @@ namespace ManHair.ViewModel.Repositories
            return CostumerList;
         }
 
-        public int getID()
+        public int getID(string email)
         {
             int ID = 0;
             List<Customer> customers = getCostumers();
-            List<Customer> filteredCustomers = customers.Where(customer => customer.Email == authenticationRepo.getEmail()).ToList();
+            List<Customer> filteredCustomers = customers.Where(customer => customer.Email == email).ToList();
             foreach (Customer customerID in filteredCustomers)
             {
                 ID = customerID.ID;

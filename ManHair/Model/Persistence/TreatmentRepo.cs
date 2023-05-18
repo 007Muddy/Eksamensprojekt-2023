@@ -10,8 +10,6 @@ namespace ManHair.Model.Persistence
 {
     public class TreatmentRepo
     {
-        private TreatmentType type { get; set; }
-        private double price { get; set; }
         public List<Treatment> types { get; set; }
       
 

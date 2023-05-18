@@ -16,8 +16,6 @@ namespace ManHair.ViewModel.Repositories
     public class AuthenticationRepo
     {
         public string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
-        public Customer customer { get; set; }
-        public List<Authentication> authentications { get; set; }
 
        public bool AuthenticateUser(Customer customer)
         {

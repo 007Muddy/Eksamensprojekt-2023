@@ -16,11 +16,5 @@ namespace ManHair.Model
             Date = date;
             Time = time;
         }
-
-        public Availability(DateOnly date)
-        
-        { 
-                Date= date;
-        }
     }
 }

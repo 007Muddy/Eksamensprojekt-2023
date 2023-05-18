@@ -42,7 +42,7 @@ namespace ManHair.ViewModel
         public CustomerHomeViewModel()
         {
             OrdersVM = new ObservableCollection<OrdersViewModel>();
-            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.getID()))
+            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.getID(authenticationRepo.getEmail())))
             {
                 OrdersViewModel ordersViewModel = new(item);
                 OrdersVM.Add(ordersViewModel);  
@@ -57,7 +57,7 @@ namespace ManHair.ViewModel
         public void UpdateOrdersVM()
         {
             OrdersVM.Clear();
-            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.getID()))
+            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.getID(authenticationRepo.getEmail())))
             {
                 OrdersViewModel ordersViewModel = new(item);
                 OrdersVM.Add(ordersViewModel);

@@ -58,7 +58,7 @@ namespace ManHair.ViewModel
             return access;
         }
 
-        public bool AdminAccess(string userName, String password)
+        public bool AdminAccess(string userName, string password)
         {
             bool access = false;
             try

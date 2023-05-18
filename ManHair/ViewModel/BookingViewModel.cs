@@ -20,14 +20,14 @@ namespace ManHair.ViewModel
   
 
         public string SelectedTime { get; set; }
-        private DateTime _selectedDate;
+        private DateTime selectedDate;
         public DateTime SelectedDate
         {
-            get { return _selectedDate; }
+            get { return selectedDate; }
             set
             {
-                _selectedDate = value;
-                SelectedDateOnly = DateOnly.FromDateTime(_selectedDate);
+                selectedDate = value;
+                SelectedDateOnly = DateOnly.FromDateTime(selectedDate);
                 OnPropertyChanged(nameof(SelectedDate));
                 OnPropertyChanged(nameof(SelectedDateOnly));
             }
@@ -62,19 +62,16 @@ namespace ManHair.ViewModel
             {
                 TreatmentViewModel treatmentViewModel = new(item);
                 TreatmentVM.Add(treatmentViewModel);
-            }
-
-            
+            }         
         }
         public void BookOrder()
         {
-            ordersRepo.Add(customerRepo.getID(), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
+            ordersRepo.Add(customerRepo.getID(authenticationRepo.getEmail()), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
             availabilityRepo.Remove(SelectedDateOnly, TimeOnly.Parse(SelectedTime));
         }
 
         public void GetAvailability()
         {
-            
             AvailableVM.Clear();
             foreach (Availability item in availabilityRepo.getAvailability(SelectedDateOnly))
             {

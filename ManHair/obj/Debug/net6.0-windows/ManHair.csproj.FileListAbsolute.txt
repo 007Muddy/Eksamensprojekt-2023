@@ -144,12 +144,7 @@ C:\Users\love_\OneDrive - UCL Erhvervsakademi og Professionshøjskole\Sem.2\Eksa
 C:\Users\love_\OneDrive - UCL Erhvervsakademi og Professionshøjskole\Sem.2\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.genruntimeconfig.cache
 C:\Users\love_\OneDrive - UCL Erhvervsakademi og Professionshøjskole\Sem.2\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ref\ManHair.dll
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.csproj.AssemblyReference.cache
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\AdminControl.g.cs
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Booking.g.cs
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\CustomerHome.g.cs
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Login.g.cs
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\MainWindow.g.cs
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Register.g.cs
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair_MarkupCompile.cache
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair_MarkupCompile.lref
@@ -178,12 +173,7 @@ C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\bin\Debug\net6.0
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\AdminControl.baml
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Booking.baml
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\CustomerHome.baml
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Login.baml
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\MainWindow.baml
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\Register.baml
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.g.resources
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.AssemblyInfoInputs.cache
@@ -192,3 +182,13 @@ C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.csproj.CopyComplete
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.genruntimeconfig.cache
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ref\ManHair.dll
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\AdminControlWindow.g.cs
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\BookingWindow.g.cs
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\CustomerHomeWindow.g.cs
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\LoginWindow.g.cs
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\RegisterWindow.g.cs
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\AdminControlWindow.baml
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\BookingWindow.baml
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\CustomerHomeWindow.baml
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\LoginWindow.baml
+C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\RegisterWindow.baml

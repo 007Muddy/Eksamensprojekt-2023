@@ -29,7 +29,7 @@ namespace ManHair.ViewModel
                 else
                 {
                     LoginMessage = $"Registration failed, please try again bro:{name}";
-                }
+                }   
             }
             catch (Exception e)
             {

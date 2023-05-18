@@ -26,19 +26,17 @@ namespace ManHair
         {
             InitializeComponent();
         }
-
         private void LoginButton(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
+            Login login = new Login(this);
             login.Show();
             this.Hide();
-
 
         }
 
         private void RegisterButton(object sender, RoutedEventArgs e)
         {
-            Register register = new Register();
+            Register register = new Register(this);
             register.Show();
             this.Hide();
 

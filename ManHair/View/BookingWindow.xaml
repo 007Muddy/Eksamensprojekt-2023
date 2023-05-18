@@ -1,0 +1,49 @@
+﻿<Window x:Class="ManHair.View.Booking"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManHair.View"
+        mc:Ignorable="d"
+        Title="Booking" Height="450" Width="800">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/View/Images/hair.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500*"/>
+            <ColumnDefinition Width="293*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Name="Type" ItemsSource="{Binding TreatmentVM}" SelectedItem="{Binding SelectedTreatmentVM}" SelectionMode="Multiple" Margin="60,39,190,152" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price, StringFormat='{}{0} kr'}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Label Name="labelTotalPrice" Content="Total Pris: 0,00 kr&#xD;&#xA;"  HorizontalAlignment="Left" Margin="60,255,0,0" VerticalAlignment="Top" Height="27" Width="117"/>
+        <Button Content="Bestil" HorizontalAlignment="Left" Margin="221,381,0,0" VerticalAlignment="Top" Grid.Column="1" Click="Order_Click" />
+        <Calendar Name="AvailableDates" SelectedDate="{Binding SelectedDateOnly}" SelectedDatesChanged="AvailableDates_SelectedDatesChanged"  HorizontalAlignment="Left" Margin="328,36,0,0" VerticalAlignment="Top" SelectionMode="SingleDate"  IsTodayHighlighted="false" Grid.ColumnSpan="2">
+            <Calendar.BlackoutDates>
+
+            </Calendar.BlackoutDates>
+        </Calendar>
+        <ListView x:Name="AvailableTimeSlots" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedTime}" SelectionMode="Single" Margin="36,38,7,153" SelectionChanged="ListView_AvailableTime" Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ledige Tider" DisplayMemberBinding="{Binding Time, StringFormat={}{0:HH:mm}}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Text="{Binding ElementName=AvailableDates, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="353,275,0,0" VerticalAlignment="Top"/>
+        <Button Content="Bestil" HorizontalAlignment="Left" Margin="221,381,0,0" VerticalAlignment="Top" Grid.Column="1" Click="Order_Click" />
+        <Button Content="Fortryd" HorizontalAlignment="Left" Margin="161,381,0,0" VerticalAlignment="Top" Grid.Column="1" Click="Cancel_Click" />
+
+    </Grid>
+</Window>
+
+
