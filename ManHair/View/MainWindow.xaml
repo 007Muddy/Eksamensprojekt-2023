@@ -106,7 +106,7 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/View/Images/hair.jpg"/>
             </Grid.Background>
-            <Button x:Name="Login" Content="Login" Margin="15,135,10,0" VerticalAlignment="Top" Click="LoginButton" Height="73" Grid.ColumnSpan="2" Background="#FF007ACC" Foreground="White" FontSize="20" Grid.Column="1">
+            <Button x:Name="Login" Content="Log på" Margin="15,135,10,0" VerticalAlignment="Top" Click="LoginButton" Height="73" Grid.ColumnSpan="2" Background="#FF007ACC" Foreground="White" FontSize="20" Grid.Column="1">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" Padding="5" Margin="5">
