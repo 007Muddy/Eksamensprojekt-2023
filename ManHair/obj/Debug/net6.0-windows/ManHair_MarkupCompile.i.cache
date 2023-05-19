@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\
+C:\Users\love_\Desktop\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\
 ManHair
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\App.xaml
+C:\Users\love_\Desktop\Eksamensprojekt-2023\ManHair\App.xaml
 61421064072
 
 34576987395
-1961596979787
+196-675421827
 View\AdminControlWindow.xaml;View\BookingWindow.xaml;View\CustomerHomeWindow.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\RegisterWindow.xaml;
 
-False
+True
 

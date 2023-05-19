@@ -27,7 +27,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="233,217,0,0" VerticalAlignment="Top">
+        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="233,217,0,0" VerticalAlignment="Top">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -68,7 +68,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="256,321,0,0" VerticalAlignment="Top" Click="ButtonBack" Height="48" Width="76">
+        <Button x:Name="back" Content="Tilbage" HorizontalAlignment="Left" Margin="256,321,0,0" VerticalAlignment="Top" Click="ButtonBack" Height="48" Width="76">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

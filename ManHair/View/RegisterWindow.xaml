@@ -78,8 +78,8 @@
 
 
 
-        <Button Content="Register" HorizontalAlignment="Left" Margin="318,300,0,0" VerticalAlignment="Top" Click="RegisterButton" Background="#FF3D7AB5" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold"/>
-        <Button Content="Already customer?" HorizontalAlignment="Left" Margin="188,297,0,0" VerticalAlignment="Top" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold" Click="RedirectButton_Click" RenderTransformOrigin="0.5,0.5" Height="23" Width="109" Background="{x:Null}">
+        <Button Content="Registrerer" HorizontalAlignment="Left" Margin="318,300,0,0" VerticalAlignment="Top" Click="RegisterButton" Background="#FF3D7AB5" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold"/>
+        <Button Content="Allerede kunde?" HorizontalAlignment="Left" Margin="188,297,0,0" VerticalAlignment="Top" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold" Click="RedirectButton_Click" RenderTransformOrigin="0.5,0.5" Height="23" Width="109" Background="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
