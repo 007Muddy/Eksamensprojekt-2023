@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,9 +13,14 @@ namespace ManHair.Model.Persistence
 {
     public class AvailabilityRepo
     {
+        private string? connectionString;
         private List<Availability> AvailabilityList = new List<Availability>();
-        //Reference to the connectionStrings made in App.Config and passing its name in the parameter
-        private string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
+        public AvailabilityRepo() 
+        {
+            IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+            connectionString = config.GetConnectionString("MyDBConnection");
+        }
 
         // Load all Costumers from database and polulating into CostumerList
 
@@ -57,11 +63,11 @@ namespace ManHair.Model.Persistence
             return AvailabilityList;    
         }
 
-        public List<Availability> getAvailability(DateOnly date)
+        public List<Availability> GetAvailability(DateOnly date)
         {
            List<Availability> filteredAvailibilty = new List<Availability>();
 
-            if (filteredAvailibilty.Count < 0)
+            if (filteredAvailibilty.Count() < 0)
             {
                 filteredAvailibilty.Clear();
             }
@@ -71,16 +77,11 @@ namespace ManHair.Model.Persistence
                     .OrderBy(availability => availability.Time).ToList();
             
             return filteredAvailibilty;
-
-          
         }
-        public void Add(DateOnly date, TimeOnly time)
+        public void AddAvailability(DateOnly date, TimeOnly time)
         {
-
             try
             {
-
-
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
                     sqlConnection.Open();
@@ -93,7 +94,6 @@ namespace ManHair.Model.Persistence
                         command.Parameters.Add("@date", SqlDbType.Date).Value = dateTime.Date;
                         command.Parameters.Add("@time", SqlDbType.Time).Value = dateTime.TimeOfDay;
                         command.ExecuteNonQuery();
-
                     }
                 }
             }
@@ -103,7 +103,7 @@ namespace ManHair.Model.Persistence
                 throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
             }
         }
-        public void Remove(DateOnly date, TimeOnly time)
+        public void RemoveAvailability(DateOnly date, TimeOnly time)
         {
             try
             {

@@ -25,5 +25,9 @@ namespace ManHair.Model
             Treatment = treatment;
             Price = price;
         }
+        public string ToString()
+        {
+            return $"{OrderID};{Date};{Time};{Price};{Treatment};{CustomerID}";
+        }
     }
 }

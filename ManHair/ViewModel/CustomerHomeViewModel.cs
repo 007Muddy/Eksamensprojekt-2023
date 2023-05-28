@@ -16,7 +16,6 @@ namespace ManHair.ViewModel
     {
         private OrdersRepo ordersRepo = new OrdersRepo();
         private CustomerRepo customerRepo = new CustomerRepo();
-        private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
         private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
         private ObservableCollection<OrdersViewModel> ordersVM;
         public ObservableCollection<OrdersViewModel> OrdersVM
@@ -42,7 +41,7 @@ namespace ManHair.ViewModel
         public CustomerHomeViewModel()
         {
             OrdersVM = new ObservableCollection<OrdersViewModel>();
-            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.getID(authenticationRepo.getEmail())))
+            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.GetID(customerRepo.getEmail())))
             {
                 OrdersViewModel ordersViewModel = new(item);
                 OrdersVM.Add(ordersViewModel);  
@@ -51,13 +50,13 @@ namespace ManHair.ViewModel
 
         public void RemoveAuthentication()
         {
-            authenticationRepo.Remove();
+            customerRepo.RemoveAuthentication();
             UpdateOrdersVM();
         }
         public void UpdateOrdersVM()
         {
             OrdersVM.Clear();
-            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.getID(authenticationRepo.getEmail())))
+            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.GetID(customerRepo.getEmail())))
             {
                 OrdersViewModel ordersViewModel = new(item);
                 OrdersVM.Add(ordersViewModel);
@@ -68,8 +67,8 @@ namespace ManHair.ViewModel
         public void CancelOrder()
         {
 
-            ordersRepo.Remove(SelectedOrder.OrderID);
-            availabilityRepo.Add(DateOnly.Parse(SelectedOrder.Date), TimeOnly.Parse(SelectedOrder.Time));
+            ordersRepo.RemoveOrder(SelectedOrder.OrderID);
+            availabilityRepo.AddAvailability(DateOnly.Parse(SelectedOrder.Date), TimeOnly.Parse(SelectedOrder.Time));
         }
 
 

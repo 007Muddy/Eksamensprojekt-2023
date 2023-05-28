@@ -62,13 +62,13 @@
                  VerticalAlignment="Top"
                  Width="120" 
                  Background="#FF686868"/>
-        <PasswordBox x:Name="txtAdgangskode" 
+        <PasswordBox x:Name="txtPassword" 
                      HorizontalAlignment="Left"
                      Margin="250,225,0,0"
                      VerticalAlignment="Top" 
                      Width="120"
                      Background="#FF686868"/>
-        <PasswordBox x:Name="txtBekræftAdgangskode" 
+        <PasswordBox x:Name="txtConfirmPassword" 
                      HorizontalAlignment="Left" Margin="250,261,0,0" 
                      VerticalAlignment="Top" 
                      Width="120"
@@ -147,6 +147,13 @@
                 </LinearGradientBrush>
             </TextBlock.Background>
         </TextBlock>
+        <TextBox x:Name="txtName"
+            HorizontalAlignment="Left"
+            Margin="242,109,0,0"
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"
+            Width="120" 
+            Background="#FF686868"/>
 
     </Grid>
 </Window>

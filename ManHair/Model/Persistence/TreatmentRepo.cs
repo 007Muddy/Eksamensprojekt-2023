@@ -12,14 +12,14 @@ namespace ManHair.Model.Persistence
     {
         public List<Treatment> types { get; set; }
       
-
+        public TreatmentRepo() { }
 
         public List<Treatment> ReturnAllTypes()
         {
             return types;
         }
 
-        public List<Treatment> getTreatments()
+        public List<Treatment> GetTreatments()
         {
             types = new List<Treatment>
     {

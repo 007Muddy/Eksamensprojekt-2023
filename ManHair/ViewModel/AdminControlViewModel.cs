@@ -16,7 +16,6 @@ namespace ManHair.ViewModel
     public class AdminControlViewModel : INotifyPropertyChanged
     {
         private OrdersRepo ordersRepo = new OrdersRepo();
-        private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
         private CustomerRepo customerRepo = new CustomerRepo();
         private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
         private ObservableCollection<OrdersViewModel> ordersVM;
@@ -53,7 +52,7 @@ namespace ManHair.ViewModel
         }
         public void RemoveAuthentication()
         {
-            authenticationRepo.Remove();
+            customerRepo.RemoveAuthentication();
         }
         public void UpdateOrdersVM()
         {
@@ -69,8 +68,8 @@ namespace ManHair.ViewModel
         public void CancelOrder()
         {
 
-            ordersRepo.Remove(SelectedOrder.OrderID);
-            availabilityRepo.Add(DateOnly.Parse(SelectedOrder.Date), TimeOnly.Parse(SelectedOrder.Time));
+            ordersRepo.RemoveOrder(SelectedOrder.OrderID);
+            availabilityRepo.AddAvailability(DateOnly.Parse(SelectedOrder.Date), TimeOnly.Parse(SelectedOrder.Time));
         }
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

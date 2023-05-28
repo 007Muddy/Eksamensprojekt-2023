@@ -14,7 +14,6 @@ namespace ManHair.ViewModel
         private TreatmentRepo treatmentRepo = new TreatmentRepo();
         private OrdersRepo ordersRepo = new OrdersRepo();
         private CustomerRepo customerRepo = new CustomerRepo();
-        private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
         public ObservableCollection<AvailabilityViewModel> AvailableVM { get; set; } = new();
         public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; } = new();
   
@@ -58,7 +57,7 @@ namespace ManHair.ViewModel
 
         public BookingViewModel()
         {
-            foreach (Treatment item in treatmentRepo.getTreatments())
+            foreach (Treatment item in treatmentRepo.GetTreatments())
             {
                 TreatmentViewModel treatmentViewModel = new(item);
                 TreatmentVM.Add(treatmentViewModel);
@@ -66,14 +65,14 @@ namespace ManHair.ViewModel
         }
         public void BookOrder()
         {
-            ordersRepo.Add(customerRepo.getID(authenticationRepo.getEmail()), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
-            availabilityRepo.Remove(SelectedDateOnly, TimeOnly.Parse(SelectedTime));
+            ordersRepo.AddOrder(customerRepo.GetID(customerRepo.getEmail()), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
+            availabilityRepo.RemoveAvailability(SelectedDateOnly, TimeOnly.Parse(SelectedTime));
         }
 
         public void GetAvailability()
         {
             AvailableVM.Clear();
-            foreach (Availability item in availabilityRepo.getAvailability(SelectedDateOnly))
+            foreach (Availability item in availabilityRepo.GetAvailability(SelectedDateOnly))
             {
                 AvailabilityViewModel availabilityViewModel = new(item);
                 AvailableVM.Add(availabilityViewModel);
@@ -82,7 +81,7 @@ namespace ManHair.ViewModel
         }
         public void RemoveAuthentication()
         {
-            authenticationRepo.Remove();
+            customerRepo.RemoveAuthentication();
         }
 
         public void CalculateTotalPrice(Treatment treatment)

@@ -1,4 +1,5 @@
 ﻿using ManHair.Model;
+using ManHair.Model.Persistence;
 using ManHair.ViewModel.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace ManHair.ViewModel
     public class LoginViewModel
     {
         public string LoginMessage { get; set; }
-        private AuthenticationRepo authenticationRepo = new AuthenticationRepo();
+        private AdminRepo adminRepo = new AdminRepo();
         private CustomerRepo customerRepo = new CustomerRepo();
 
         public LoginViewModel() { }
@@ -21,69 +22,42 @@ namespace ManHair.ViewModel
 
             bool access = false;
 
-            try
+            Customer customer = new Customer(email, password);
+            customerRepo.AddAuthentication(email, password);
+            if (customerRepo.AuthenticateUser(customer) == true)
             {
-                if (email != null && password != null)
+                List<Customer> customers = customerRepo.GetCustomers();
+                List<Customer> filteredCustomers = customers.Where(customer => customer.Email == email).ToList();
+                foreach (Customer customerName in filteredCustomers)
                 {
-
-                    Customer customer = new Customer(email, password);
-                    authenticationRepo.Add(email, password);
-                    if (authenticationRepo.AuthenticateUser(customer) == true)
-                    {
-
-                        List<Customer> customers = customerRepo.getCostumers();
-                        List<Customer> filteredCustomers = customers.Where(customer => customer.Email == email).ToList();
-
-
-                        foreach (Customer customerName in filteredCustomers)
-                        {
-                            string name = customerName.Name;
-                            LoginMessage = $"Login was successful: Welcome {name}";
-                        }
-
-                        access = true;
-                    }
-                    else
-                    {
-                        LoginMessage = $"Login failed please try again";
-                    }
+                     string name = customerName.Name;
+                     LoginMessage = $"Login was successful: Welcome {name}";
                 }
+                access = true;
             }
-            catch (Exception e)
+            else
             {
-
-                throw new Exception("Der opstod en fejl under login" + e);
+                LoginMessage = $"Login failed please try again";
             }
-
             return access;
         }
 
         public bool AdminAccess(string userName, string password)
         {
             bool access = false;
-            try
+            if (userName != null && password != null)
             {
-                if (userName != null && password != null)
+                Admin admin = new Admin(userName, password);
+                if (adminRepo.AdminAuthentication(admin) == true)
                 {
-                    Admin admin = new Admin(userName, password);
-
-                    if (authenticationRepo.AdminAuthentication(admin) == true)
-                    {
-                        access = true;
-                        LoginMessage = $"Login was successful: Welcome Admin";
-                    }
-                    else
-                    {
-                        LoginMessage = $"Login failed please try again";
-                    }
+                    access = true;
+                    LoginMessage = $"Login was successful: Welcome Admin";
+                }
+                else
+                {
+                    LoginMessage = $"Login failed please try again";
                 }
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
             return access;
         }
     }

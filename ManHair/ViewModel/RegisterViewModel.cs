@@ -16,28 +16,19 @@ namespace ManHair.ViewModel
 
         public bool CreateNewCustomer(string name, int phone, string email, string password)
         {
-            bool Registersucces = false;
-
-            try
+            bool Registersuccess = false; 
+            
+            if (name != null && email != null && password != null)
             {
-                if (name != null && email != null && password != null)
-                {
-                    customerRepo.Add(name, phone, email, password);
-                    Registersucces = true;
-                    LoginMessage = $"You have successfully registered:{name}";
-                }
-                else
-                {
-                    LoginMessage = $"Registration failed, please try again bro:{name}";
-                }   
+                customerRepo.AddCustomer(name, phone, email, password);
+                Registersuccess = true;
+                LoginMessage = $"You have successfully registered:{name}";
             }
-            catch (Exception e)
+            else
             {
-
-                throw e;
-            }
-            return Registersucces;
-
+                LoginMessage = $"Registration failed, please try again:{name}";
+            }   
+            return Registersuccess;
         }
     }
 }

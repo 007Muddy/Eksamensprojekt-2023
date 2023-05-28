@@ -9,19 +9,28 @@ using System.Threading.Tasks;
 using ManHair.Model;
 using System.Configuration;
 using System.Windows.Input;
+using Microsoft.Extensions.Configuration;
 
 namespace ManHair.ViewModel.Repositories
 {
     public class OrdersRepo
     {
-        private string connectionString { get; } = ConfigurationManager.ConnectionStrings["DatabaseString"].ConnectionString;
+        private string? connectionString;
         private List<Orders> ordersList = new List<Orders>();
+        private List<Orders> filteredOrders = new List<Orders>();
+
+        public OrdersRepo() 
+        {
+            IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+            connectionString = config.GetConnectionString("MyDBConnection");
+        }
 
         public List<Orders> RetrieveOrders()
         {
             try
             {
-                if (ordersList.Count > 0)
+                if (ordersList.Count() > 0)
                 {
                     ordersList.Clear();
                 }
@@ -76,27 +85,17 @@ namespace ManHair.ViewModel.Repositories
 
         public List<Orders> GetCustomerOrders(int id)
         {
-            List<Orders> filteredOrders = new List<Orders>();
-            if (filteredOrders.Count < 0)
-            {
-                filteredOrders.Clear();
-            }
-            else
-            {
                 List<Orders> orders = RetrieveOrders();
                 filteredOrders = orders.Where(orders => orders.CustomerID == id)
                         .OrderBy(order => order.Date)
                        .ThenBy(order => order.Time).ToList();
-            }
             return filteredOrders;
         }
 
-        public void Add(int id, string date, string time, double price, int treatment)
+        public void AddOrder(int id, string date, string time, double price, int treatment)
         {
-
             try
-            {
-                
+            {  
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
                     sqlConnection.Open();
@@ -121,7 +120,7 @@ namespace ManHair.ViewModel.Repositories
                     throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
             }
         }
-        public void Remove(int orderID)
+        public void RemoveOrder(int orderID)
         {
             try
             {

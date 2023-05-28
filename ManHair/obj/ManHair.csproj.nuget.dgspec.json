@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\love_\\Desktop\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {}
+    "C:\\Users\\suner\\OneDrive\\Skrivebord\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {}
   },
   "projects": {
-    "C:\\Users\\love_\\Desktop\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {
+    "C:\\Users\\suner\\OneDrive\\Skrivebord\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\love_\\Desktop\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
+        "projectUniqueName": "C:\\Users\\suner\\OneDrive\\Skrivebord\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
         "projectName": "ManHair",
-        "projectPath": "C:\\Users\\love_\\Desktop\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
-        "packagesPath": "C:\\Users\\love_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\love_\\Desktop\\Eksamensprojekt-2023\\ManHair\\obj\\",
+        "projectPath": "C:\\Users\\suner\\OneDrive\\Skrivebord\\Eksamensprojekt-2023\\ManHair\\ManHair.csproj",
+        "packagesPath": "C:\\Users\\suner\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\suner\\OneDrive\\Skrivebord\\Eksamensprojekt-2023\\ManHair\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\love_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\suner\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,14 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -68,7 +76,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

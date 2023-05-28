@@ -43,7 +43,6 @@ namespace ManHair.View
                 if (lvm.AccessGranted(txtEmail.Text, txtPassword.Password))
                 {
                     MessageBox.Show(lvm.LoginMessage);
-
                     CustomerHome customerWindow = new CustomerHome();
                     customerWindow.Show();
                     this.Close();

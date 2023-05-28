@@ -38,21 +38,29 @@ namespace ManHair.View
         }
         private void RegisterButton(object sender, RoutedEventArgs e)
         {
-            if (txtEmail != null && txtTlf != null && txtEmail != null && txtAdgangskode != null && txtBekræftAdgangskode != null)
+            if (txtEmail.Text != "" && txtTlf.Text != "" && txtEmail.Text != "" && txtPassword.Password != "" && txtConfirmPassword.Password != "")
             {
-                if (txtAdgangskode.Password == txtBekræftAdgangskode.Password)
+                if (txtPassword.Password == txtConfirmPassword.Password)
                 {
-                    if (rvm.CreateNewCustomer(txtEmail.Text, Int32.Parse(txtTlf.Text), txtEmail.Text, txtAdgangskode.Password))
+                    if (rvm.CreateNewCustomer(txtName.Text, Int32.Parse(txtTlf.Text), txtEmail.Text, txtPassword.Password))
                     {
-                        MessageBox.Show("You have successfully registered");
+                        MessageBox.Show(rvm.LoginMessage);
                         mv.Show();
                         this.Close();
                     }
+                    else
+                    {
+                        MessageBox.Show(rvm.LoginMessage);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Adgangskoden og BekræftAdgangskode matcher ikke :(");
                 }
             }
             else
             {
-                MessageBox.Show("Please fill all the fields");
+                MessageBox.Show("Udfyld alle felterne :(");
             }
         }
 
