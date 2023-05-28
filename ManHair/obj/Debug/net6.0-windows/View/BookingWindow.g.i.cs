@@ -39,7 +39,7 @@ namespace ManHair.View {
     /// <summary>
     /// Booking
     /// </summary>
-    public partial class Booking : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class BookingWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
         #line 20 "..\..\..\..\View\BookingWindow.xaml"
@@ -138,7 +138,7 @@ namespace ManHair.View {
             case 1:
             
             #line 9 "..\..\..\..\View\BookingWindow.xaml"
-            ((ManHair.View.Booking)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
+            ((ManHair.View.BookingWindow)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
             
             #line default
             #line hidden

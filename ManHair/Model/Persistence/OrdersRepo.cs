@@ -117,7 +117,7 @@ namespace ManHair.ViewModel.Repositories
             catch (SqlException e)
             {
 
-                    throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
+                        throw new Exception("Something went wrong when trying to add a new use to the DB" + e);
             }
         }
         public void RemoveOrder(int orderID)

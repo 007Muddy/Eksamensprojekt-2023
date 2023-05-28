@@ -39,7 +39,7 @@ namespace ManHair.View {
     /// <summary>
     /// AdminControl
     /// </summary>
-    public partial class AdminControl : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class AdminControlWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
         #line 32 "..\..\..\..\View\AdminControlWindow.xaml"
@@ -106,7 +106,7 @@ namespace ManHair.View {
             case 1:
             
             #line 9 "..\..\..\..\View\AdminControlWindow.xaml"
-            ((ManHair.View.AdminControl)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
+            ((ManHair.View.AdminControlWindow)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
             
             #line default
             #line hidden

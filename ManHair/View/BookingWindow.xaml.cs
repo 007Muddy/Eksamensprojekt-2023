@@ -20,19 +20,19 @@ namespace ManHair.View
     /// <summary>
     /// Interaction logic for Booking.xaml
     /// </summary>
-    public partial class Booking : Window
+    public partial class BookingWindow : Window
     {
         private double totalPrice;
         BookingViewModel bvm;
-        CustomerHome chw;
-        public Booking()
+        CustomerHomeWindow chw;
+        public BookingWindow()
         {
             InitializeComponent();
             AvailableDates.BlackoutDates.AddDatesInPast();
             bvm = new BookingViewModel();
             DataContext = bvm;
         }
-        public Booking(CustomerHome customerHome)
+        public BookingWindow(CustomerHomeWindow customerHome)
         {
             InitializeComponent();
             chw = customerHome;
@@ -98,7 +98,7 @@ namespace ManHair.View
         {   
             bvm.BookOrder();
             MessageBox.Show("Din bookning er bestilt :)");
-            CustomerHome customerHome = new CustomerHome();
+            CustomerHomeWindow customerHome = new CustomerHomeWindow();
             customerHome.Show();
             this.Close();
         }

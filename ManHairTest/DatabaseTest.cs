@@ -32,14 +32,11 @@ namespace ManHairTest
         {
             // #### ARRANGE ####
             CustomerRepo repo = new CustomerRepo();
-                
-            // #### ACT ####
-           
 
             // #### ASSERT ####
-            Assert.AreEqual("3", repo.GetID(c1.Email).ToString());
-            
+            Assert.AreEqual("3", repo.GetID(c1.Email).ToString());  
         }
+
         [TestMethod]
         public void AccessGrantedForCustomer()
         {
@@ -52,8 +49,8 @@ namespace ManHairTest
             // #### ASSERT ####
             Assert.AreEqual("True", repo.AuthenticateUser(c2).ToString());
             repo.RemoveCustomer(c2.Email);
-
         }
+        
         [TestMethod]
         public void MakeAnOrder()
         {

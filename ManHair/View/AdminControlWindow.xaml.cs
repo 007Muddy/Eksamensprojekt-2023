@@ -18,11 +18,11 @@ namespace ManHair.View
     /// <summary>
     /// Interaction logic for AdminControl.xaml
     /// </summary>
-    public partial class AdminControl : Window
+    public partial class AdminControlWindow : Window
     {
         public AdminControlViewModel acvm { get; set; }
 
-        public AdminControl()
+        public AdminControlWindow()
         {
             InitializeComponent();
             acvm = new AdminControlViewModel();
@@ -37,7 +37,7 @@ namespace ManHair.View
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             acvm.RemoveAuthentication();
-            Login login = new Login();
+            LoginWindow login = new LoginWindow();
             login.Show();
             this.Close();
         }

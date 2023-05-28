@@ -39,7 +39,7 @@ namespace ManHair.View {
     /// <summary>
     /// Register
     /// </summary>
-    public partial class Register : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class RegisterWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
         #line 45 "..\..\..\..\View\RegisterWindow.xaml"
@@ -130,7 +130,7 @@ namespace ManHair.View {
             case 1:
             
             #line 9 "..\..\..\..\View\RegisterWindow.xaml"
-            ((ManHair.View.Register)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
+            ((ManHair.View.RegisterWindow)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
             
             #line default
             #line hidden

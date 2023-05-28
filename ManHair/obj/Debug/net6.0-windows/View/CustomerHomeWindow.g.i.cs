@@ -39,7 +39,7 @@ namespace ManHair.View {
     /// <summary>
     /// CustomerHome
     /// </summary>
-    public partial class CustomerHome : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class CustomerHomeWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
         #line 23 "..\..\..\..\View\CustomerHomeWindow.xaml"
@@ -122,13 +122,13 @@ namespace ManHair.View {
             case 1:
             
             #line 2 "..\..\..\..\View\CustomerHomeWindow.xaml"
-            ((ManHair.View.CustomerHome)(target)).Closing += new System.ComponentModel.CancelEventHandler(this.OnClosing);
+            ((ManHair.View.CustomerHomeWindow)(target)).Closing += new System.ComponentModel.CancelEventHandler(this.OnClosing);
             
             #line default
             #line hidden
             
             #line 10 "..\..\..\..\View\CustomerHomeWindow.xaml"
-            ((ManHair.View.CustomerHome)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
+            ((ManHair.View.CustomerHomeWindow)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
             
             #line default
             #line hidden

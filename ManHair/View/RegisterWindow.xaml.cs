@@ -18,21 +18,21 @@ namespace ManHair.View
     /// <summary>
     /// Interaction logic for RegisterButton.xaml
 
-    public partial class Register : Window
+    public partial class RegisterWindow : Window
     {
         RegisterViewModel rvm { get; set; }
-        MainWindow mv;
-        public Register()
+        LoginWindow lw;
+        public RegisterWindow()
         {
             InitializeComponent();
             rvm = new RegisterViewModel();
             DataContext = rvm;
         }
-        public Register(MainWindow main)
+        public RegisterWindow(LoginWindow login)
         {
             InitializeComponent();
-            mv = main;
-            mv.Hide();
+            lw = login;
+            lw.Hide();
             rvm = new RegisterViewModel();
             DataContext = rvm;
         }
@@ -45,7 +45,7 @@ namespace ManHair.View
                     if (rvm.CreateNewCustomer(txtName.Text, Int32.Parse(txtTlf.Text), txtEmail.Text, txtPassword.Password))
                     {
                         MessageBox.Show(rvm.LoginMessage);
-                        mv.Show();
+                        lw.Show();
                         this.Close();
                     }
                     else
@@ -81,8 +81,7 @@ namespace ManHair.View
 
         private void RedirectButton_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            lw.Show();
             this.Hide();
         }
     }

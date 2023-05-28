@@ -18,32 +18,23 @@ namespace ManHair.View
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class LoginWindow : Window
     {
         LoginViewModel lvm;
-        MainWindow mv;
-        public Login()
+        public LoginWindow()
         {
             InitializeComponent();           
             lvm = new LoginViewModel();
             DataContext = lvm;
         }
-        public Login(MainWindow main)
-        {
-            InitializeComponent();
-            mv = main;
-            mv.Hide();
-            lvm = new LoginViewModel();
-            DataContext = lvm;
-        }
-        private void ButtonLogin(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             if (txtEmail.Text != null && txtPassword.Password != null)
             {
                 if (lvm.AccessGranted(txtEmail.Text, txtPassword.Password))
                 {
                     MessageBox.Show(lvm.LoginMessage);
-                    CustomerHome customerWindow = new CustomerHome();
+                    CustomerHomeWindow customerWindow = new CustomerHomeWindow();
                     customerWindow.Show();
                     this.Close();
 
@@ -51,7 +42,7 @@ namespace ManHair.View
                 else if (lvm.AdminAccess(txtEmail.Text, txtPassword.Password))
                 {
                     MessageBox.Show(lvm.LoginMessage);
-                    AdminControl control = new AdminControl();
+                    AdminControlWindow control = new AdminControlWindow();
                     control.Show();
                     this.Close();
                 }
@@ -81,12 +72,11 @@ namespace ManHair.View
                 DragMove();
         }
 
-        private void ButtonBack(object sender, RoutedEventArgs e)
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow mainWindow = new MainWindow();
-            //mainWindow.Show();
-            mv.Show();
-            this.Close();
+            RegisterWindow rw = new RegisterWindow(this);
+            rw.Show();
+            this.Hide();
             
         }
     }

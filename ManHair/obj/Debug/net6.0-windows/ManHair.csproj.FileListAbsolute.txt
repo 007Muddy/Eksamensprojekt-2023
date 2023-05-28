@@ -144,7 +144,6 @@ C:\Users\love_\OneDrive - UCL Erhvervsakademi og Professionshøjskole\Sem.2\Eksa
 C:\Users\love_\OneDrive - UCL Erhvervsakademi og Professionshøjskole\Sem.2\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.genruntimeconfig.cache
 C:\Users\love_\OneDrive - UCL Erhvervsakademi og Professionshøjskole\Sem.2\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ref\ManHair.dll
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.csproj.AssemblyReference.cache
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\MainWindow.g.cs
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair_MarkupCompile.cache
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair_MarkupCompile.lref
@@ -173,7 +172,6 @@ C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\bin\Debug\net6.0
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\View\MainWindow.baml
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.g.resources
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\suner\OneDrive\Skrivebord\Eksamensprojekt-2023\ManHair\obj\Debug\net6.0-windows\ManHair.AssemblyInfoInputs.cache

@@ -18,10 +18,10 @@ namespace ManHair.View
     /// <summary>
     /// Interaction logic for CustomerHome.xaml
     /// </summary>
-    public partial class CustomerHome : Window
+    public partial class CustomerHomeWindow : Window
     {
         CustomerHomeViewModel chvm;
-        public CustomerHome()
+        public CustomerHomeWindow()
         {
             InitializeComponent();
             chvm = new CustomerHomeViewModel();
@@ -34,7 +34,7 @@ namespace ManHair.View
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {
-            Booking booking = new Booking(this);
+            BookingWindow booking = new BookingWindow(this);
             booking.Show();
             this.Hide();
         }
@@ -46,7 +46,7 @@ namespace ManHair.View
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             chvm.RemoveAuthentication();
-            Login login = new Login();
+            LoginWindow login = new LoginWindow();
             login.Show();
             this.Close();
         }
