@@ -65,7 +65,11 @@ namespace ManHair.ViewModel
         }
         public void BookOrder()
         {
-            orderRepo.AddOrder(customerRepo.GetID(customerRepo.getEmail()), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
+            orderRepo.AddOrder(customerRepo.GetID(customerRepo.getEmail()),
+                SelectedDate.ToString("yyyy-MM-dd"),
+                SelectedTime,
+                TotalPrice,
+                (int)SelectedTypes);
             availabilityRepo.RemoveAvailability(SelectedDateOnly, TimeOnly.Parse(SelectedTime));
         }
 

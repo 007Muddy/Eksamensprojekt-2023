@@ -158,7 +158,7 @@ namespace ManHair.View {
             case 7:
             
             #line 82 "..\..\..\..\View\RegisterWindow.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.RedirectButton_Click);
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.BackButton_Click);
             
             #line default
             #line hidden

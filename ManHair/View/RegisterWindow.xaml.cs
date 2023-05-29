@@ -79,7 +79,7 @@ namespace ManHair.View
                 DragMove();
         }
 
-        private void RedirectButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             lw.Show();
             this.Hide();

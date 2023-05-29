@@ -71,7 +71,7 @@
         </StackPanel>
 
         <Grid Grid.Row="1">
-            <ListView ItemsSource="{Binding OrdersVM}" SelectedItem="{Binding SelectedOrder}" Background="White" Margin="0,15,400,10" Opacity="0.9" >
+            <ListView ItemsSource="{Binding OrderVM}" SelectedItem="{Binding SelectedOrder}" Background="White" Margin="0,15,400,10" Opacity="0.9" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header=" Date" DisplayMemberBinding="{Binding Date}"/>
