@@ -49,8 +49,7 @@ namespace ManHair.ViewModel.Repositories
                             int bitwise = int.Parse(dataReader.GetString(4));
                             List<string> treatment = GetTreatmentTypesFromDB(bitwise);
                             int customerID = dataReader.GetInt32(5);
-                            // string.Join() in the RetrieveOrders() method is to concatenate the list of treatment type strings (treatment) we have used \ to look better on GUI.
-                            // This is done to create a more human-readable representation of the treatment types when displayed in the ListView.
+
                             string treatmentString = string.Join(" \n ", treatment);
 
                             Order orders = new Order(orderID, orderDate, time, price, treatmentString, customerID);
