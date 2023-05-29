@@ -14,21 +14,21 @@ namespace ManHair.ViewModel
 {
     public class CustomerHomeViewModel : INotifyPropertyChanged
     {
-        private OrdersRepo ordersRepo = new OrdersRepo();
+        private OrderRepo orderRepo = new OrderRepo();
         private CustomerRepo customerRepo = new CustomerRepo();
         private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
-        private ObservableCollection<OrdersViewModel> ordersVM;
-        public ObservableCollection<OrdersViewModel> OrdersVM
+        private ObservableCollection<OrderViewModel> orderVM;
+        public ObservableCollection<OrderViewModel> OrderVM
         {
-            get => ordersVM;
+            get => orderVM;
             set
             {
-                ordersVM = value;
-                OnPropertyChanged(nameof(OrdersVM));
+                orderVM = value;
+                OnPropertyChanged(nameof(OrderVM));
             }
         }
-        private OrdersViewModel selectedOrder;
-        public OrdersViewModel SelectedOrder
+        private OrderViewModel selectedOrder;
+        public OrderViewModel SelectedOrder
         {
             get => selectedOrder;
             set
@@ -40,11 +40,11 @@ namespace ManHair.ViewModel
         }
         public CustomerHomeViewModel()
         {
-            OrdersVM = new ObservableCollection<OrdersViewModel>();
-            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.GetID(customerRepo.getEmail())))
+            OrderVM = new ObservableCollection<OrderViewModel>();
+            foreach (Order item in orderRepo.GetCustomerOrders(customerRepo.GetID(customerRepo.getEmail())))
             {
-                OrdersViewModel ordersViewModel = new(item);
-                OrdersVM.Add(ordersViewModel);  
+                OrderViewModel ordersViewModel = new(item);
+                OrderVM.Add(ordersViewModel);  
             }
         }
 
@@ -55,11 +55,11 @@ namespace ManHair.ViewModel
         }
         public void UpdateOrdersVM()
         {
-            OrdersVM.Clear();
-            foreach (Orders item in ordersRepo.GetCustomerOrders(customerRepo.GetID(customerRepo.getEmail())))
+            OrderVM.Clear();
+            foreach (Order item in orderRepo.GetCustomerOrders(customerRepo.GetID(customerRepo.getEmail())))
             {
-                OrdersViewModel ordersViewModel = new(item);
-                OrdersVM.Add(ordersViewModel);
+                OrderViewModel ordersViewModel = new(item);
+                OrderVM.Add(ordersViewModel);
             }
             OnPropertyChanged("OrdersVM");
 
@@ -67,7 +67,7 @@ namespace ManHair.ViewModel
         public void CancelOrder()
         {
 
-            ordersRepo.RemoveOrder(SelectedOrder.OrderID);
+            orderRepo.RemoveOrder(SelectedOrder.OrderID);
             availabilityRepo.AddAvailability(DateOnly.Parse(SelectedOrder.Date), TimeOnly.Parse(SelectedOrder.Time));
         }
 

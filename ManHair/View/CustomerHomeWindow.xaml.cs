@@ -32,17 +32,13 @@ namespace ManHair.View
             chvm.RemoveAuthentication();
         }
 
-        private void Order_Click(object sender, RoutedEventArgs e)
+        private void GoToOrder_Click(object sender, RoutedEventArgs e)
         {
             BookingWindow booking = new BookingWindow(this);
             booking.Show();
             this.Hide();
         }
 
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             chvm.RemoveAuthentication();

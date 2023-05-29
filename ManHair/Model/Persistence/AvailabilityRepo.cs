@@ -14,7 +14,7 @@ namespace ManHair.Model.Persistence
     public class AvailabilityRepo
     {
         private string? connectionString;
-        private List<Availability> AvailabilityList = new List<Availability>();
+        private List<Availability> availabilityList = new List<Availability>();
         public AvailabilityRepo() 
         {
             IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
@@ -24,9 +24,9 @@ namespace ManHair.Model.Persistence
 
         // Load all Costumers from database and polulating into CostumerList
 
-        public List<Availability> loadAllAvailabilities()
+        public List<Availability> LoadAllAvailabilities()
         {
-            AvailabilityList.Clear();
+            availabilityList.Clear();
             try
             {
                 //before we can access the database we have to connect to the database, here we use SqlConnection object and refer it to the connectionstring
@@ -46,7 +46,7 @@ namespace ManHair.Model.Persistence
                             TimeSpan Time = (dataReader.GetTimeSpan(1));
                             TimeOnly time = TimeOnly.FromTimeSpan(Time);
                             Availability availability = new Availability(date, time);
-                            AvailabilityList.Add(availability);
+                            availabilityList.Add(availability);
                         }
 
                     }
@@ -60,10 +60,10 @@ namespace ManHair.Model.Persistence
                 throw new Exception("An error occured while trying to fetch data from the database");
             }
 
-            return AvailabilityList;    
+            return availabilityList;    
         }
 
-        public List<Availability> GetAvailability(DateOnly date)
+        public List<Availability> GetAvailabilities(DateOnly date)
         {
            List<Availability> filteredAvailibilty = new List<Availability>();
 
@@ -72,7 +72,7 @@ namespace ManHair.Model.Persistence
                 filteredAvailibilty.Clear();
             }
             
-            List<Availability> availabilities = loadAllAvailabilities();
+            List<Availability> availabilities = LoadAllAvailabilities();
             filteredAvailibilty = availabilities.Where(availability => availability.Date == date)
                     .OrderBy(availability => availability.Time).ToList();
             

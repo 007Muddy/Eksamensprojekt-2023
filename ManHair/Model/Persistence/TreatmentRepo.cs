@@ -14,11 +14,6 @@ namespace ManHair.Model.Persistence
       
         public TreatmentRepo() { }
 
-        public List<Treatment> ReturnAllTypes()
-        {
-            return types;
-        }
-
         public List<Treatment> GetTreatments()
         {
             types = new List<Treatment>

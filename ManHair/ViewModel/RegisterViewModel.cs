@@ -9,7 +9,7 @@ namespace ManHair.ViewModel
 {
     public class RegisterViewModel
     {
-        public string LoginMessage { get; set; }
+        public string RegisterMessage { get; set; }
         private CustomerRepo customerRepo = new CustomerRepo();
 
         public RegisterViewModel() { }
@@ -22,11 +22,11 @@ namespace ManHair.ViewModel
             {
                 customerRepo.AddCustomer(name, phone, email, password);
                 Registersuccess = true;
-                LoginMessage = $"You have successfully registered:{name}";
+                RegisterMessage = $"You have successfully registered:{name}";
             }
             else
             {
-                LoginMessage = $"Registration failed, please try again:{name}";
+                RegisterMessage = $"Registration failed, please try again :{name}";
             }   
             return Registersuccess;
         }

@@ -11,7 +11,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="/View/Images/haircut3.jpg"/>
         </Grid.Background>
-        <ListView ItemsSource="{Binding OrdersVM}" SelectedItem="{Binding SelectedOrder}" Background="#FF909090" Margin="0,10,340,15" Opacity="0.8" >
+        <ListView ItemsSource="{Binding OrderVM}" SelectedItem="{Binding SelectedOrder}" Background="#FF909090" Margin="0,10,340,15" Opacity="0.8" >
             <ListView.View>
                 <GridView>
 

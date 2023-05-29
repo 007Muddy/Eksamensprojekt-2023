@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ManHair.ViewModel
 {
-    public class OrdersViewModel
+    public class OrderViewModel
     {
         public int OrderID { get; set; }
         public int CustomerID { get; set; }
@@ -17,15 +17,15 @@ namespace ManHair.ViewModel
         public string Treatment { get; set; }
         public double Price { get; set; }
 
-        public OrdersViewModel(Orders orders)
+        public OrderViewModel(Order order)
 
         {
-            OrderID = orders.OrderID;
-            CustomerID = orders.CustomerID;
-            Date = orders.Date;
-            Time = orders.Time;
-            Treatment = orders.Treatment;
-            Price = orders.Price;
+            OrderID = order.OrderID;
+            CustomerID = order.CustomerID;
+            Date = order.Date;
+            Time = order.Time;
+            Treatment = order.Treatment;
+            Price = order.Price;
 
 
         }

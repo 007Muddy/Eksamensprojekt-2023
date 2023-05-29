@@ -15,8 +15,6 @@ namespace ManHair.Model
         {
             UserName = username;
             Password = password;
-
-
         }
     }
 }

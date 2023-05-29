@@ -114,7 +114,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="CloseButton_Click" Content="X" Height="24" Width="30" Click="CloseButto_Click" Background="Red">
+            <Button x:Name="CloseButton_Click" Content="X" Height="24" Width="30" Click="CloseButton_Click" Background="Red">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background">

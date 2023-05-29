@@ -15,8 +15,7 @@ namespace ManHair.Model
         public string Password { get; set; }
 
         public Customer(int id, string name, int phone, string email, string password)
-        {
-           
+        { 
             Name = name;
             Phone = phone;
             Email = email;
@@ -28,9 +27,5 @@ namespace ManHair.Model
             Email = email;
             Password = password;
         }
-
-        
-
-       
     }
 }

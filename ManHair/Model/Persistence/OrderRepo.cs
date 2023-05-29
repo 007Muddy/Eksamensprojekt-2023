@@ -13,20 +13,20 @@ using Microsoft.Extensions.Configuration;
 
 namespace ManHair.ViewModel.Repositories
 {
-    public class OrdersRepo
+    public class OrderRepo
     {
         private string? connectionString;
-        private List<Orders> ordersList = new List<Orders>();
-        private List<Orders> filteredOrders = new List<Orders>();
+        private List<Order> ordersList = new List<Order>();
+        private List<Order> filteredOrders = new List<Order>();
 
-        public OrdersRepo() 
+        public OrderRepo() 
         {
             IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 
             connectionString = config.GetConnectionString("MyDBConnection");
         }
 
-        public List<Orders> RetrieveOrders()
+        public List<Order> RetrieveOrders()
         {
             try
             {
@@ -53,7 +53,7 @@ namespace ManHair.ViewModel.Repositories
                             // This is done to create a more human-readable representation of the treatment types when displayed in the ListView.
                             string treatmentString = string.Join(" \n ", treatment);
 
-                            Orders orders = new Orders(orderID, orderDate, time, price, treatmentString, customerID);
+                            Order orders = new Order(orderID, orderDate, time, price, treatmentString, customerID);
                             ordersList.Add(orders);
 
                         }
@@ -83,12 +83,12 @@ namespace ManHair.ViewModel.Repositories
             return treatmentTypes;
         }
 
-        public List<Orders> GetCustomerOrders(int id)
+        public List<Order> GetCustomerOrders(int id)
         {
-                List<Orders> orders = RetrieveOrders();
+                List<Order> orders = RetrieveOrders();
                 filteredOrders = orders.Where(orders => orders.CustomerID == id)
-                        .OrderBy(order => order.Date)
-                       .ThenBy(order => order.Time).ToList();
+                        .OrderBy(orders => orders.Date)
+                       .ThenBy(orders => orders.Time).ToList();
             return filteredOrders;
         }
 

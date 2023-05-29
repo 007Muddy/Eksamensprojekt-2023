@@ -28,10 +28,10 @@ namespace ManHair.View
             rvm = new RegisterViewModel();
             DataContext = rvm;
         }
-        public RegisterWindow(LoginWindow login)
+        public RegisterWindow(LoginWindow loginWindow)
         {
             InitializeComponent();
-            lw = login;
+            lw = loginWindow;
             lw.Hide();
             rvm = new RegisterViewModel();
             DataContext = rvm;
@@ -44,13 +44,13 @@ namespace ManHair.View
                 {
                     if (rvm.CreateNewCustomer(txtName.Text, Int32.Parse(txtTlf.Text), txtEmail.Text, txtPassword.Password))
                     {
-                        MessageBox.Show(rvm.LoginMessage);
+                        MessageBox.Show(rvm.RegisterMessage);
                         lw.Show();
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show(rvm.LoginMessage);
+                        MessageBox.Show(rvm.RegisterMessage);
                     }
                 }
                 else
@@ -64,7 +64,7 @@ namespace ManHair.View
             }
         }
 
-        private void CloseButto_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

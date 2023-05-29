@@ -12,9 +12,9 @@ namespace ManHair.ViewModel
     {
         private AvailabilityRepo availabilityRepo = new AvailabilityRepo();
         private TreatmentRepo treatmentRepo = new TreatmentRepo();
-        private OrdersRepo ordersRepo = new OrdersRepo();
+        private OrderRepo orderRepo = new OrderRepo();
         private CustomerRepo customerRepo = new CustomerRepo();
-        public ObservableCollection<AvailabilityViewModel> AvailableVM { get; set; } = new();
+        public ObservableCollection<AvailabilityViewModel> AvailabilityVM { get; set; } = new();
         public ObservableCollection<TreatmentViewModel> TreatmentVM { get; set; } = new();
   
 
@@ -65,17 +65,17 @@ namespace ManHair.ViewModel
         }
         public void BookOrder()
         {
-            ordersRepo.AddOrder(customerRepo.GetID(customerRepo.getEmail()), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
+            orderRepo.AddOrder(customerRepo.GetID(customerRepo.getEmail()), SelectedDate.ToString("yyyy-MM-dd"), SelectedTime, TotalPrice, (int)SelectedTypes);
             availabilityRepo.RemoveAvailability(SelectedDateOnly, TimeOnly.Parse(SelectedTime));
         }
 
         public void GetAvailability()
         {
-            AvailableVM.Clear();
-            foreach (Availability item in availabilityRepo.GetAvailability(SelectedDateOnly))
+            AvailabilityVM.Clear();
+            foreach (Availability item in availabilityRepo.GetAvailabilities(SelectedDateOnly))
             {
                 AvailabilityViewModel availabilityViewModel = new(item);
-                AvailableVM.Add(availabilityViewModel);
+                AvailabilityVM.Add(availabilityViewModel);
 
             }
         }

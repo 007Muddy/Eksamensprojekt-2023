@@ -8,7 +8,7 @@ namespace ManHairTest
     public class DatabaseTest
     {
         Availability av;
-        Orders o;
+        Order o;
         Customer c1;
         Customer c2;
         Treatment t;
@@ -23,7 +23,7 @@ namespace ManHairTest
             av = new Availability(DO, TO);
             //o = new Orders(142,DO,TO,205,5,52);
             c1 = new Customer("sune@mail.dk", "Test");
-            c2 = new Customer(52,"Test",51674558,"TestForID@gmail.com","Test");
+            c2 = new Customer(52,"Test",51674558,"Test@gmail.com","Test");
             t = new Treatment(Treatment.TreatmentType.HairCut | Treatment.TreatmentType.Shaving, 205);
         }
 
@@ -55,13 +55,13 @@ namespace ManHairTest
         public void MakeAnOrder()
         {
             // #### ARRANGE #### 
-            OrdersRepo repo = new OrdersRepo();
+            OrderRepo repo = new OrderRepo();
 
             // #### ACT ####
             repo.AddOrder(6, av.Date.ToString(), av.Time.ToString(), t.Price, (int)t.Types);
-            foreach(Orders order in repo.GetCustomerOrders(6))
+            foreach(Order order in repo.GetCustomerOrders(6))
             {
-                o = new Orders(order.OrderID, order.Date, order.Time, order.Price, order.Treatment, order.CustomerID);
+                o = new Order(order.OrderID, order.Date, order.Time, order.Price, order.Treatment, order.CustomerID);
             }
 
             // #### ASSERT ####

@@ -117,7 +117,7 @@
 
         <!-- Add close and minimize buttons -->
         <Grid Margin="0,0,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="90">
-            <Button x:Name="btnMinimize" Content="-" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="33,0,0,0" Width="27" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnMinimize_Click" Background="#FFF6A900">
+            <Button x:Name="btnMinimize" Content="-" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="33,0,0,0" Width="27" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="MinimizeButton_Click" Background="#FFF6A900">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background">
@@ -140,7 +140,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="btnClose" Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="btnClose_Click" Background="Red">
+            <Button x:Name="btnClose" Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" Height="20" Foreground="White" BorderBrush="Transparent" FontSize="16" Click="CloseButton_Click" Background="Red">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background">

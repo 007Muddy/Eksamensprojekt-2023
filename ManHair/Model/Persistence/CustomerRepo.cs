@@ -67,7 +67,7 @@ namespace ManHair.ViewModel.Repositories
         public List<Customer> GetCustomers() 
         {
 
-            if (CostumerList.Count() == 0)
+            if (CostumerList.Count()     == 0)
             {
                 LoadAllCustomers();
             }
