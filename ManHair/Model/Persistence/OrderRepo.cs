@@ -71,7 +71,6 @@ namespace ManHair.ViewModel.Repositories
         public List<string> GetTreatmentTypesFromDB(int bitwiseValue)
         {
             List<string> treatmentTypes = new List<string>();
-            //int bitCast = int.Parse(bitwiseValue);
 
             foreach (Treatment.TreatmentType type in Enum.GetValues(typeof(Treatment.TreatmentType)))
             {

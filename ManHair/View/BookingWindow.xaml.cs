@@ -44,7 +44,6 @@ namespace ManHair.View
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             totalPrice = 0;
-            int currentTypes = (int)bvm.SelectedTypes;
             foreach (TreatmentViewModel treatment in Type.SelectedItems)
             {
                 totalPrice += treatment.Price;
