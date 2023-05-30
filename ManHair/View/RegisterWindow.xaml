@@ -16,60 +16,48 @@
             <ImageBrush ImageSource="/View/Images/hair.jpg"/>
         </Grid.Background>
         <Label Content="Navn" HorizontalAlignment="Left"
-               Margin="281,79,0,0" VerticalAlignment="Top" 
-               Height="30" Width="73" FontWeight="Bold" 
+               Margin="370,87,0,0" VerticalAlignment="Top" 
+               Height="30" Width="74" FontWeight="Bold" 
                Foreground="White" Background="{x:Null}"/>
         <Label Content="Tlf. nummer"
                HorizontalAlignment="Left" 
-               Margin="263,126,0,0"
+               Margin="347,126,0,0"
                VerticalAlignment="Top" 
                FontWeight="Bold" 
                Foreground="White"/>
         <Label Content="Email" 
                HorizontalAlignment="Left" 
-               Margin="287,166,0,0" 
+               Margin="371,166,0,0" 
                VerticalAlignment="Top" 
                FontWeight="Bold"
                Foreground="White"/>
         <Label Content="Adgangskode" 
                HorizontalAlignment="Left"
-               Margin="265,201,0,0"
+               Margin="349,201,0,0"
                VerticalAlignment="Top" 
                FontWeight="Bold" 
                Foreground="White"/>
         <Label Content="Bekræft adgangskode"
                HorizontalAlignment="Left"
-               Margin="243,236,0,0" 
+               Margin="327,236,0,0" 
                VerticalAlignment="Top" 
                FontWeight="Bold" Foreground="White"/>
-        <TextBox x:Name="txtTlf"
-         HorizontalAlignment="Left"
-         VerticalAlignment="Top"
-         Margin="248,152,0,0"
-         Width="120"
-         Height="19"
-         TextWrapping="Wrap"
-         Background="#FF686868"
-         Foreground="White"
-         BorderThickness="1"
-         BorderBrush="Gray"
-         Padding="5"/>
 
         <TextBox x:Name="txtEmail"
                  HorizontalAlignment="Left"
-                 Margin="250,190,0,0"
+                 Margin="334,190,0,0"
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top"
                  Width="120" 
                  Background="#FF686868"/>
         <PasswordBox x:Name="txtPassword" 
                      HorizontalAlignment="Left"
-                     Margin="250,225,0,0"
+                     Margin="334,225,0,0"
                      VerticalAlignment="Top" 
                      Width="120"
                      Background="#FF686868"/>
         <PasswordBox x:Name="txtConfirmPassword" 
-                     HorizontalAlignment="Left" Margin="250,261,0,0" 
+                     HorizontalAlignment="Left" Margin="334,261,0,0" 
                      VerticalAlignment="Top" 
                      Width="120"
                      Background="#FF686868"/>
@@ -78,8 +66,8 @@
 
 
 
-        <Button Content="Registrerer" HorizontalAlignment="Left" Margin="318,300,0,0" VerticalAlignment="Top" Click="RegisterButton" Background="#FF3D7AB5" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold"/>
-        <Button Content="Allerede kunde?" HorizontalAlignment="Left" Margin="188,297,0,0" VerticalAlignment="Top" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold" Click="BackButton_Click" RenderTransformOrigin="0.5,0.5" Height="23" Width="109" Background="{x:Null}">
+        <Button Content="Registrerer" HorizontalAlignment="Left" Margin="402,300,0,0" VerticalAlignment="Top" Click="RegisterButton" Background="#FF3D7AB5" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold"/>
+        <Button Content="Allerede kunde?" HorizontalAlignment="Left" Margin="272,297,0,0" VerticalAlignment="Top" BorderBrush="#FF3D7AB5" Foreground="White" FontWeight="Bold" Click="BackButton_Click" RenderTransformOrigin="0.5,0.5" Height="23" Width="109" Background="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -114,7 +102,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="CloseButton_Click" Content="X" Height="24" Width="30" Click="CloseButton_Click" Background="Red">
+            <Button x:Name="CloseButton" Content="X" Height="24" Width="30" Click="CloseButton_Click" Background="Red">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background">
@@ -139,17 +127,16 @@
                 </Button.Style>
             </Button>
         </StackPanel>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Welcome to Manhair" VerticalAlignment="Top" Height="16" Width="113" Margin="250,0,0,0">
-            <TextBlock.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FFF1F1F1" Offset="1"/>
-                </LinearGradientBrush>
-            </TextBlock.Background>
-        </TextBlock>
         <TextBox x:Name="txtName"
             HorizontalAlignment="Left"
-            Margin="242,109,0,0"
+            Margin="334,109,0,0"
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"
+            Width="120" 
+            Background="#FF686868"/>
+        <TextBox x:Name="txtTlf"
+            HorizontalAlignment="Left"
+            Margin="331,148,0,0"
             TextWrapping="Wrap" 
             VerticalAlignment="Top"
             Width="120" 

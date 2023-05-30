@@ -13,13 +13,13 @@
             <ImageBrush ImageSource="/View/Images/hair2.jpg"/>
         </Grid.Background>
 
-        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="332,225,0,0" Foreground="#FFFBFBFB">
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="396,225,0,0" Foreground="#FFFBFBFB">
             <PasswordBox.Background>
                 <ImageBrush/>
             </PasswordBox.Background>
         </PasswordBox>
 
-        <Label Content="Email" HorizontalAlignment="Left" Margin="233,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.548,0.218">
+        <Label Content="Email" HorizontalAlignment="Left" Margin="297,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.548,0.218">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -27,7 +27,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="233,217,0,0" VerticalAlignment="Top">
+        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="297,217,0,0" VerticalAlignment="Top">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -35,7 +35,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Button x:Name="Login1" Content="Log på" HorizontalAlignment="Left" Margin="392,321,0,0" VerticalAlignment="Top" Click="LoginButton_Click" Height="48" Width="76">
+        <Button x:Name="Login1" Content="Log på" HorizontalAlignment="Left" Margin="450,317,0,0" VerticalAlignment="Top" Click="LoginButton_Click" Height="48" Width="76">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -68,7 +68,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="RegisterButton" Content="Registrer her" HorizontalAlignment="Left" Margin="256,320,0,0" VerticalAlignment="Top" Click="RegisterButton_Click" Height="48" Width="104" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="RegisterButton" Content="Registrer her" HorizontalAlignment="Left" Margin="284,316,0,0" VerticalAlignment="Top" Click="RegisterButton_Click" Height="48" Width="104" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -109,7 +109,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBox  x:Name="txtEmail" HorizontalAlignment="Left" Margin="332,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFFBFBFB" CaretBrush="White">
+        <TextBox  x:Name="txtEmail" HorizontalAlignment="Left" Margin="396,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FFFBFBFB" CaretBrush="White">
             <TextBox.Background>
                 <ImageBrush/>
             </TextBox.Background>
@@ -164,11 +164,11 @@
                 </Button.Style>
             </Button>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="256,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="352" FontSize="25">
+        <TextBlock HorizontalAlignment="Left" Margin="242,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="352" FontSize="25">
             <TextBlock.Background>
                 <ImageBrush/>
             </TextBlock.Background><Run Language="en-gb" Text="V"/><Run Text="elkommen"/><Run Text=" til "/><Run Text=" Manhair salon "/></TextBlock>
-        <Button x:Name="LoginButton" Content="Log på" HorizontalAlignment="Left" Margin="392,321,0,0" VerticalAlignment="Top" Click="LoginButton_Click" Height="48" Width="76">
+        <Button x:Name="LoginButton" Content="Log på" HorizontalAlignment="Left" Margin="450,317,0,0" VerticalAlignment="Top" Click="LoginButton_Click" Height="48" Width="76">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>

@@ -32,7 +32,7 @@
 
             </Calendar.BlackoutDates>
         </Calendar>
-        <ListView x:Name="AvailableTimeSlots" ItemsSource="{Binding AvailableVM}" SelectedItem="{Binding SelectedTime}" SelectionMode="Single" Margin="40,39,10,152" SelectionChanged="ListView_AvailableTime" Grid.Column="1">
+        <ListView x:Name="AvailableTimeSlots" ItemsSource="{Binding AvailabilityVM}" SelectedItem="{Binding SelectedTime}" SelectionMode="Single" Margin="40,39,10,152" SelectionChanged="ListView_AvailableTime" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ledige Tider" DisplayMemberBinding="{Binding Time, StringFormat={}{0:HH:mm}}"/>
